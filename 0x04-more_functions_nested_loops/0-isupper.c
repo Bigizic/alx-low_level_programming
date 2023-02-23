@@ -2,7 +2,8 @@
 /*header*/
 /**
 * _isupper - checks for uppercase characters...
-* return: 1 if c is uppercase otherwise return 0 ..
+* @c: contains alphabet a to z in uppercase..
+* Return: 1 if c is uppercase otherwise 0 ..
 */
 
 int _isupper(int c)
