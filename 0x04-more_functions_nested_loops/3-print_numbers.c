@@ -8,7 +8,8 @@
 
 void print_numbers(void)
 {
-for (int x = 0; x < 10; x++)
+int x;
+for (x = 0; x < 10; x++)
 {
 _putchar ("%d", x);
 }
