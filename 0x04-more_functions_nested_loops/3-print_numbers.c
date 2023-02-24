@@ -2,18 +2,20 @@
 /*header*/
 
 /**
-* print_numbers - prints the numbers from 0 to 9...
-* Return: 0 if success..
-*/
+ * print_numbers - entry point
+ *
+ * Description: Prints the numbers with _putchar
+ *
+ * Return: void
+ */
 
 void print_numbers(void)
 {
-int i;
+int number;
 
-for (i = 0; i <= 9; i++)
+for (number = '0'; number <= '9'; number++)
 {
-_putchar(i + '0');
+_putchar(number);
+}
 _putchar('\n');
 }
-}
-
