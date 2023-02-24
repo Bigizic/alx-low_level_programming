@@ -1,7 +1,7 @@
 #include "main.h"
 /*header*/
 /**
-* more_numbers - function
+* more_numbers -check the code ..
 *
 * Description: print numbers with _putchar
 * Return: void
