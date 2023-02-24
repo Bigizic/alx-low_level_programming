@@ -13,6 +13,5 @@ for (int x = 0; x < 10; x++)
 _putchar ("%d", x);
 }
 _putchar('\n');
-return (0);
 }
 
