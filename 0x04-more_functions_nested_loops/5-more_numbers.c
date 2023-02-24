@@ -3,24 +3,26 @@
 /**
 * more_numbers - function
 *
-* Description: print numbers 0-14, 10x, followed by \n each time.
-* Return: Always 0 (success)
+* Description: print numbers with _putchar
+* Return: void
 */
 void more_numbers(void)
 {
-int i = 0;
-int n = 0;
+int i, a, n, b;
 
-for (n = 0; n < 10; n++)
+for (n = 0; n <= 10; n++)
 {
 for (i = 0; i <= 14; i++)
 {
-if (i >= 10)
+a = i / 10;
+b = i % 10;
+
+if (i > 9)
 {
-_putchar(i / 10 + '0');
+_putchar(a + '0');
 }
-_putchar(i % 10 + '0');
+_putchar(b + '0');
 }
-_putchar(10);
+_putchar('\n');
 }
 }
