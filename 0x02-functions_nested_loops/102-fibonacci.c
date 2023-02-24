@@ -26,7 +26,7 @@ printf("%lu, ", m);
 
 k = m;
 m += i;
-m = k;
+i = k;
 co++;
 }
 
