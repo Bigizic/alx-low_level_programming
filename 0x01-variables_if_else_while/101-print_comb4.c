@@ -31,6 +31,7 @@ putchar('\n');
 }
 else
 {
+putchar(',');
 putchar(' ');
 }
 
