@@ -13,4 +13,5 @@ void print_square(int size);
 void print_triangle(int size);
 void print_number(int n);
 int b10_pow(int idx);
+
 #endif
