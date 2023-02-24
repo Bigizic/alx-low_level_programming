@@ -10,11 +10,12 @@
 int main(void)
 {
 int a = '0';
-int b = '1';
+int b;
 int c;
-while (a <= '9')
+while (a <= '7')
 {
-while (b <= '9')
+b = a + 1;
+while (b <= '8')
 {
 c = b + 1;
 
@@ -24,9 +25,14 @@ putchar(a);
 putchar(b);
 putchar(c);
 
-if (c)
+if (a == '7' && b == '8' && c == '9')
 {
-putchar(',');
+putchar('\n');
+}
+else
+{
+putchar('\n');
+putchar(' ');
 }
 
 c++;
