@@ -6,14 +6,9 @@
 * Return: 0 if success..
 */
 
-void print_numbers(void)
-{
-int i = 0;
-while (i <=9)
-{
-_putchar(i + '0');
-i++;
-}
-_putchar('\n');
-}
 
+int main(void)
+{
+print_numbers();
+return (0);
+}
