@@ -31,7 +31,6 @@ putchar('\n');
 }
 else
 {
-putchar('\n');
 putchar(' ');
 }
 
