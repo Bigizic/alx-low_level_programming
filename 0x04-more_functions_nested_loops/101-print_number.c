@@ -1,10 +1,10 @@
 #include "main.h"
-#include "stdio.h"
+#include <stdio.h>
 
 /**
- * print_number - prints an integer
- * @n: the integer to print
- */
+* print_number - prints an integer
+* @n: the integer to print
+*/
 void print_number(int n)
 {
 int i;
@@ -33,11 +33,11 @@ putchar('8');
 }
 
 /**
- * b10_pow - Computes the power of 10 to the given index
- * @idx: The index to which 10 is raised to.
- *
- * Return: A power of 10
- */
+* b10_pow - Computes the power of 10 to the given index
+* @idx: The index to which 10 is raised to.
+*
+* Return: A power of 10
+*/
 int b10_pow(int idx)
 {
 int i;
