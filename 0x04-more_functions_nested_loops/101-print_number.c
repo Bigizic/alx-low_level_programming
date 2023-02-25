@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <limits.h>
 
 /**
  * print_number - print an int numbers.
@@ -9,7 +10,7 @@
 
 void print_number(int n)
 {
-if (n == '0')
+if (n <= INT_MAX)
 putchar(n);
 return;
 }
