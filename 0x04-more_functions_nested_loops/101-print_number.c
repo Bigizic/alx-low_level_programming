@@ -9,7 +9,29 @@
 
 void print_number(int n)
 {
-if (n)
-putchar (n + '0');
-return;
+
+if(i/10!=0)
+{
+putchar(i%10);
+printnumber((i-i%10)/10);
 }
+if ( i > 0 )
+{
+putchar(i%10 + '0');
+}
+else
+{
+putchar(-i%10 + '0'); 
+}
+}
+else if((i/10==0) && (i%10!=0) && (i>0))
+{
+putchar(i%10 + '0');
+}
+else if((i/10==0) && (i%10!=0) && (i<=0))
+{
+
+putchar('-');
+putchar(-i%10+'0');
+}    
+
