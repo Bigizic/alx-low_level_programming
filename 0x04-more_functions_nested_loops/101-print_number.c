@@ -1,54 +1,47 @@
 #include "main.h"
-#include "stdio.h"
-
+#include <stdio.h>
 /**
-* print_number - prints an integer
-* @n: the integer to print
+* print_number - print an int numbers.
+* @n: number tested
+* Return: Always 0.
 */
 void print_number(int n)
 {
-int i;
-int max;
-int minVal = n + 1 == -2147483640 - 7 ? -1 : 0;
-int rem = n < 0 ? 0 - n + minVal : n;
+int i, j, digit, digits, power;
+unsigned int temp, numchar, number;
 
-max = 1;
-max *= 100000;
-max *= 100000;
-
+digit = 0;
 if (n < 0)
-_putchar('-');
-
-for (i = 9; i >= 0; i--)
 {
-int power = b10_pow(i);
-
-if (rem > power - 1 && !(i == 0 && minVal < 0))
-_putchar((int)((rem / power) % 10) + '0');
-else if (i == 0 && minVal >= 0)
-_putchar((int)((rem / power) % 10) + '0');
-if (i == 0 && minVal < 0)
-_putchar('8');
+putchar('-');
+temp = -n;
 }
+else
+{
+temp = n;
 }
 
-/**
-* b10_pow - Computes the power of 10 to the given index
-* @idx: The index to which 10 is raised to.
-*
-* Return: A power of 10
-*/
-int b10_pow(int idx)
-{
-int i;
-int result = 1;
+number = temp;
 
-if (idx < 0)
-return (0);
-
-for (i = 0; i < idx; i++)
+while (number >= 10)
 {
-result *= 10;
+number = number / 10;
+digit++;
 }
-return (result);
+digits = digit + 1;
+power = 1;
+i = 1;
+
+while (i < digits)
+{
+power = power * 10;
+i++;
+}
+j = power;
+while (j >= 1)
+{
+numchar = (temp / j) % 10;
+putchar(numchar + '0');
+j = j / 10;
+}
 }
