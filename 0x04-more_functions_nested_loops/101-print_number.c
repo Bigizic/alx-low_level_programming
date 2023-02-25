@@ -9,8 +9,8 @@
 
 void print_number(int n)
 {
-n = 0;
-putchar(integer = "%d", n)
+if (n <= 123456789)
+putchar(n);
 return (0);
 }
 
