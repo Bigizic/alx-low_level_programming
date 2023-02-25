@@ -9,7 +9,8 @@
 
 void print_number(int n)
 {
-putchar("%d", n)
-return 0;
+n = 0;
+putchar(integer = "%d", n)
+return (0);
 }
 
