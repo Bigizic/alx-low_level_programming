@@ -9,7 +9,7 @@
 
 void print_number(int n)
 {
-if (n)
-putchar (n);
+if (n <= 1024)
+putchar (n + '0');
 return;
 }
