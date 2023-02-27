@@ -3,7 +3,7 @@
 /*header*/
 
 /**
-* _strlen - prints half of a string ..
+* _strlen - get the length of a string ..
 * @s: char type ..
 * Return: 1 if success ..
 */
