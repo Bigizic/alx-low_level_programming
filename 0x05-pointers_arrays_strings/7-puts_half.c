@@ -3,8 +3,8 @@
 /*header*/
 
 /**
-* _strlen - get the length of a string ..
-* @s: char type ..
+* puts_half - get the length of a string ..
+* @str: char type ..
 * Return: 1 if success ..
 */
 
@@ -24,7 +24,7 @@ else
 d = (c - 1) / 2;
 i = c - d;
 }
-for (i = 0; i < c; i++)
+for (; i < c; i++)
 {
 putchar(str[i]);
 }
