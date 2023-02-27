@@ -8,40 +8,23 @@
 * Return: 1 if success ..
 */
 
-int _strlen(char *s)
-{
-int i = 0, k;
-
-while (s[i] != '\0')
-
-{
-i++;
-}
-k = i;
-
-return (1);
-}
-
-/**
-* puts_half -  prints half of a string ..
-* @str: char type ..
-* Return: string if success ..
-**/
 
 void puts_half(char *str)
 {
-int i;
-int man = _strlen(str);
+int c = 0, i, d;
 
-if (man % 2 != 0)
+for (i = 0; str[i]; i++)
+c++;
+if (c % 2 == 0)
 {
-i = (man / 2) + 1;
+i = c / 2;
 }
 else
 {
-i = man / 2;
+d = (c - 1) / 2;
+i = c - d;
 }
-for (i = i; i < man; i++)
+for (i = 0; i < counter; i++)
 {
 putchar(str[i]);
 }
