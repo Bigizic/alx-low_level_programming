@@ -11,7 +11,12 @@
 
 int _strlen(char *s)
 {
-int c = strlen(*s);
+
+for (int c = 0; s[c] != '\0'; c++)
+{
 
 return (c);
+}
+
+
 }
