@@ -1,5 +1,5 @@
 #include "main.h"
-#include <Stdio.h>
+#include <stdio.h>
 /*header*/
 
 /**
