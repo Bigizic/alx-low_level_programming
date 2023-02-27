@@ -3,19 +3,37 @@
 /*header*/
 
 /**
-* puts2 - prints every character of a string starting with the first line ..
+* _strlen - prints every character of a string starting with the first line ..
+* @s: char type ..
+* Return: length of a string if success ..
+*/
+
+int _strlen(char *s)
+{
+int l, i = 0;
+
+while (s[i] != '\0')
+{
+i++;
+}
+l = i;
+return (l);
+}
+
+/**
+* puts2 - prints one char out of 2 of a string ..
 * @str: char type ..
-* Return: 0 if success ..
+* Return: nothing .
 */
 
 void puts2(char *str)
 {
-int w, i = 0;
+int i;
+int size = _strlen(str);
 
-while (str[i] != '\0')
+for (i = 0; i < size; i += 2)
 {
-i++;
+putchar(str[i]);
 }
-w = i;
-return (1);
+putchar('\n');
 }
