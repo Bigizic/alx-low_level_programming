@@ -17,5 +17,5 @@ while (str[i] != '\0')
 i++;
 }
 w = i;
-return (1):
+return (1);
 }
