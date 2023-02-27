@@ -4,13 +4,13 @@
 
 /**
 * _strlen - prints half of a string ..
-* @s: char type .
-* Return: 0 if success ..
+* @s: char type ..
+* Return: 1 if success ..
 */
 
 int _strlen(char *s)
 {
-int w, i =0;
+int w, i = 0;
 
 while (s[i] != '\0')
 {
@@ -21,9 +21,9 @@ return (1);
 }
 
 /**
-* puts_half -  prints half of a string
-* @str: a pointer to string
-* Return: string
+* puts_half -  prints half of a string ..
+* @str: char type ..
+* Return: string if success ..
 **/
 
 void puts_half(char *str)
