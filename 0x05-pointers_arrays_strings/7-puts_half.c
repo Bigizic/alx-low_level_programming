@@ -24,7 +24,7 @@ else
 d = (c - 1) / 2;
 i = c - d;
 }
-for (i = 0; i < counter; i++)
+for (i = 0; i < c; i++)
 {
 putchar(str[i]);
 }
