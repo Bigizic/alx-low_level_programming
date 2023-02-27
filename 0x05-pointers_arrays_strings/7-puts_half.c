@@ -10,13 +10,14 @@
 
 int _strlen(char *s)
 {
-int w, i = 0;
+int w;
+int i = 0;
 
 while (s[i] != '\0')
 {
 i++;
-w = i;
 }
+w = i;
 return (1);
 }
 
