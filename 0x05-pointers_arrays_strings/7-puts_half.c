@@ -15,8 +15,8 @@ int w, i = 0;
 while (s[i] != '\0')
 {
 i++;
-}
 w = i;
+}
 return (1);
 }
 
