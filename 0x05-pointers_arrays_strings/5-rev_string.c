@@ -21,7 +21,7 @@ while (s[i] != '\0')
 i++;
 }
 i--;
-for (o = 0; o < i; i++)
+for (o = 0; o < i; o++)
 {
 c = s[o];
 d = s[i];
