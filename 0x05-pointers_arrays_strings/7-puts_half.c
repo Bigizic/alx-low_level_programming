@@ -8,7 +8,7 @@
 * Return: 0 if success ..
 */
 
-void _strlen(char *s)
+int _strlen(char *s)
 {
 int w, i =0;
 

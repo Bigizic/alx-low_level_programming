@@ -15,13 +15,13 @@ int w;
 
 for (w = 0; w < n; w++)
 {
-if (w != n -1)
+if (w != n - 1)
 {
-printf("%d", a[w]);
+printf("%d , ", a[w]);
 }
 else
 {
-printf("%d", a[w]);
+printf("%d , ", a[w]);
 }
 }
 printf("\n");
