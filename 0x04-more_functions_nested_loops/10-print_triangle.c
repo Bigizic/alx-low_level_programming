@@ -7,6 +7,7 @@
  * Return: nothing
  */
 
+
 void print_triangle(int size)
 {
 int l, c, s;

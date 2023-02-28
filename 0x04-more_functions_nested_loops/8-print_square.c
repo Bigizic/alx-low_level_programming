@@ -7,6 +7,7 @@
 * Return: none
 **/
 
+
 void print_square(int size)
 {
 int l, c;

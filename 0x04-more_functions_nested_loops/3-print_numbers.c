@@ -5,6 +5,7 @@
 *
 *Return: print to stdout the alphabet, in lowercase, followed by a new line.
 **/
+
 void print_numbers(void)
 {
 int i;
