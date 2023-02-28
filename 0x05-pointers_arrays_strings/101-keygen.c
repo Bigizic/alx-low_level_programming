@@ -26,3 +26,4 @@ printf("%c", i);
 printf("%c\n", (2772 - j));
 return (0);
 }
+

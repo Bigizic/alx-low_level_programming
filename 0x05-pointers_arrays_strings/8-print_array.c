@@ -26,3 +26,4 @@ printf("%d", a[w]);
 }
 printf("\n");
 }
+
