@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 0-main.c, main.h: Based on the main.c file above, create a file named 0-main.c. 
 This file must test that the function positive_or_negative() gives the correct output when given a case of 0.
 You are not coding the solution / function, you’re just testing it! However, 
@@ -26,4 +27,7 @@ You can assume that all test cases have valid month/day combinations
 (i.e. there will never be a June 31st or November 31st, etc.), but not all month/day/year combinations are valid 
 (i.e. February 29, 1991 or February 29, 2427).
 
+=======
+More functions nested loops
+>>>>>>> ab8b81969f0ffb086a32a2755b9af9bdf6e77608
 

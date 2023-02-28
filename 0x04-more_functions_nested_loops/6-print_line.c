@@ -7,6 +7,7 @@
 * Return: none;
 **/
 
+
 void print_line(int n)
 {
 int count;

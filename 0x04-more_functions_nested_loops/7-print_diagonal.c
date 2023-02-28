@@ -7,6 +7,7 @@
 * Return: none
 **/
 
+
 void print_diagonal(int n)
 {
 int l, c;
