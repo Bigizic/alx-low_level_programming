@@ -21,10 +21,13 @@ for (cd = 0; s2[cd] != '\0'; cd++)
 {
 }
 
+i = i+2;
+cd = cd+2;
+
 if (s1 < s2)
-return (-15);
+return (-i + (-cd));
 else if (s2 < s1)
-return (15);
+return (i + cd);
 else
 return (0);
 }
