@@ -11,23 +11,24 @@
 
 int _strcmp(char *s1, char *s2)
 {
-int i;
-int cd;
 
-for (i = 0; s1[i] != '\0'; i++)
+for (; *s1 != '\0' && *s2 != '\0'; s1++, s2++)
 {
-}
-for (cd = 0; s2[cd] != '\0'; cd++)
+if (*s1 != *s2)
 {
+return (*s1 - *s2);
 }
-
-i = i+2;
-cd = cd+2;
-
-if (s1 < s2)
-return (-i + (-cd));
-else if (s2 < s1)
-return (i + cd);
-else
+else if (*s1 == '\0' || *s2 == '\0')
+{
+break;
+}
+}
+if (*s1 == *s2)
+{
 return (0);
 }
+else
+return (*s1 - *s2);
+}
+
+
