@@ -22,9 +22,9 @@ for (cd = 0; s2[cd] != '\0'; cd++)
 }
 
 if (s1 < s2)
-return (-i + (-cd));
+return (-15);
 else if (s2 < s1)
-return (i + cd);
+return (15);
 else
 return (0);
 }
