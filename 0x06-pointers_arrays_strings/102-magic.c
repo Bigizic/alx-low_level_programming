@@ -1,6 +1,11 @@
 #include <stdio.h>
 /*header*/
 
+/**
+* main - prints number ..
+* Return: 0 if success ..
+*/
+
 int main(void)
 {
 int n;
