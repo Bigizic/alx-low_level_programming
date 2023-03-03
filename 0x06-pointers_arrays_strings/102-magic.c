@@ -1,11 +1,5 @@
-#include "main.h"
 #include <stdio.h>
 /*header*/
-
-/**
-* main - make magic..
-* Return: 0 if success .
-*/
 
 int main(void)
 {
