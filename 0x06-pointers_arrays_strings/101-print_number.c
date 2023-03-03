@@ -18,7 +18,9 @@ i = -n;
 putchar('-');
 }
 else
+{
 i = n;
+}
 
 if (i > 9)
 {
