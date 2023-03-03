@@ -10,28 +10,18 @@
 
 void print_number(int n)
 {
+unsigned int i;
 
-if (i/10 != 0)
+if (n < 0)
 {
-putchar(i%10);
-printnumber((i-i%10)/10);
-}
-if (i > 0)
-{
-putchar(i%10 + '0');
-}
-else 
-{
-putchar(-i%10 + '0');
-}
-}
-else if ((i/10 == 0) && (i%10 != 0) && (i > 0))
-{
-putchar(i%10 + '0');
-};
-else if ((i/10 == 0) && (i%10 != 0) && (i <= 0))
-{
+i = -n;
 putchar('-');
-putchar(-i%10 + '0');
 }
+else
+i = n;
 
+if (i > 9)
+{
+print_number(i / 10);
+}
+putchar(i % 10 + '0');
