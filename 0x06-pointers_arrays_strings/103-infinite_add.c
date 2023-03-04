@@ -31,8 +31,8 @@ n1_len--;
 n2_len--;
 for (; i >= 0; i--)
 {
-n1_dig = n1_len >= 0 ? *(n1 + n1_len) - '0' : 0;
-n2_dig = n2_len >= 0 ? *(n2 + n2_len) - '0' : 0;
+n1_dig = n1_len >= 0 ? *(n1 + n1_len) -'0' : 0;
+n2_dig = n2_len >= 0 ? *(n2 + n2_len) -'0' : 0;
 rem = (n1_dig + n2_dig + carry) % 10;
 carry = (n1_dig + n2_dig + carry) / 10;
 *(r + i) = (rem + '0');
