@@ -17,10 +17,6 @@ if (n < 0)
 i = -n;
 _putchar('-');
 }
-else
-{
-i = n;
-}
 if (i > 9)
 {
 print_number(i / 10);
