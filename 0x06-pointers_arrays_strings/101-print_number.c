@@ -15,7 +15,7 @@ int i;
 if (n < 0)
 {
 i = -n;
-putchar('-');
+_putchar('-');
 }
 else
 {
@@ -25,5 +25,5 @@ if (i > 9)
 {
 print_number(i / 10);
 }
-putchar(i % 10 + '0');
+_putchar(i % 10 + '0');
 }
