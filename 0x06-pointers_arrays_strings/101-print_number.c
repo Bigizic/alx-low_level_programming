@@ -21,7 +21,6 @@ else
 {
 i = n;
 }
-
 if (i > 9)
 {
 print_number(i / 10);
