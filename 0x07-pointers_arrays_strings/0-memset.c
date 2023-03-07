@@ -7,7 +7,7 @@
 * @s: char type ..
 * @b: char type ..
 * @n: int type ..
-* Return: 0 if succesas ..
+* Return: s if succesas ..
 */
 
 char *_memset(char *s, char b, unsigned int n)
