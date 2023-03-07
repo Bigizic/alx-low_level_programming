@@ -3,10 +3,10 @@
 /*header*/
 
 /**
-* print_diagsums - prints the sum of the two diagonals of a square matrix of integers.
+* print_diagsums -  prints the sum of the two diagonals..
 * @a: int type ..
 * @size: int type ..
-* Return: 0 if success .. 
+* Return: 0 if success ..
 */
 
 void print_diagsums(int *a, int size)
