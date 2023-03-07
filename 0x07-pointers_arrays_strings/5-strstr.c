@@ -4,7 +4,7 @@
 
 /**
 * *_strstr - locates a substring ..
-* @haystick: char type ..
+* @haystack: char type ..
 * @needle: char type ..
 * Return: 0 if success..
 */
