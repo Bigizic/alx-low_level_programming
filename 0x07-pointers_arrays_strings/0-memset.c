@@ -7,7 +7,7 @@
 * @s: char type ..
 * @b: char type ..
 * @n: int type ..
-* Return 0 if succesas ..
+* Return s if succesas ..
 */
 
 char *_memset(char *s, char b, unsigned int n)
@@ -16,4 +16,4 @@ unsigned int i;
 for (i = 0; i < n; i++)
 s[i] = b;
 return (s);
-}
+o}
