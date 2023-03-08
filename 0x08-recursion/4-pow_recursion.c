@@ -3,8 +3,8 @@
 /*header*/
 
 /**
-* _pow_recursion - returns the value of x raised to the power of y .. 
-* @x: int type ..
+* _pow_recursion - returns the value of x raised to the power of y..
+* @x:int type ..
 * @y: int type ..
 * Return: 0 if success ..
 */
@@ -19,5 +19,5 @@ else if (x == 1 || y == 0)
 {
 return (1);
 }
-return (x * _pow_recursion(x, y -1));
+return (x * _pow_recursion(x, y - 1));
 }
