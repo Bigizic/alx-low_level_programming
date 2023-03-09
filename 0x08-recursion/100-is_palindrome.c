@@ -17,24 +17,26 @@ return (0);
 }
 else
 {
-i = palin(s +1);
+i = palin(s + 1);
 i++;
 }
 return (i);
 }
 
-/** scanner - scans string ..
+/**
+* scanner - scans string ..
 * @c: char type ..
-* @d: char rtpe ..
+* @d: char type ..
 * Return: 0 if success ..
 */
+
 int scanner(char *c, char *d)
 {
 if (*c != *d)
 {
 return (0);
 }
-else if ( c >= d)
+else if (c >= d)
 {
 return (1);
 }
