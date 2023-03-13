@@ -13,7 +13,7 @@
 
 int main(int argc, char *argv[])
 {
-int i;
+int i, j;
 int k = 0;
 
 if (argc < 2)
@@ -21,19 +21,18 @@ if (argc < 2)
 printf("0\n");
 return (0);
 }
-
 for (i = 1; i < argc; i++)
-
-if (!isdigit(argv[i][1]))
+{
+for (j = 0; argv[i][j] != '\0'; j++)
+{
+if (!isdigit(argv[i][j]))
 {
 printf("Error\n");
 return (1);
 }
-
-else
-
+}
 k += atoi(argv[i]);
+}
 printf("%d\n", k);
 return (0);
-
 }
