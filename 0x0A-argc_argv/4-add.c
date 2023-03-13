@@ -24,14 +24,16 @@ return (0);
 
 for (i = 1; i < argc; i++)
 
-if (!isdigit(argv[i][0]))
+if (!isdigit(argv[i][1]))
 {
 printf("Error\n");
 return (1);
 }
 
 else
+
 k += atoi(argv[i]);
 printf("%d\n", k);
 return (0);
+
 }
