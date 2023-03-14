@@ -18,9 +18,10 @@ p = malloc(sizeof(char));
 p = strdup(str);
 
 return (p);
-free (p);
+
 if (str == NULL)
 {
 return (NULL);
 }
+free(p);
 }
