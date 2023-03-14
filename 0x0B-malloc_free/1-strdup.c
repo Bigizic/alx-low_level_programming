@@ -12,18 +12,26 @@
 
 char *_strdup(char *str)
 {
+int i = 1, j = 0;
 char *p;
-p = malloc(sizeof(char));
+p = malloc(sizeof(char) * i + 1);
 
 p = strdup(str);
 
-return (p);
+while (*str)
+{
+p[j] = *str;
+str++;
+j += 1;
+}
 if (p == NULL)
 {
 return (NULL);
 }
 
-else if (str == NULL)
+return (p);
+
+if (str == NULL)
 {
 return (NULL);
 }
