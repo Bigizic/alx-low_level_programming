@@ -16,14 +16,13 @@ char *p;
 p = malloc(sizeof(char) * 0);
 p = strdup(str);
 return (p);
+if (p == NULL)
+{
+return (NULL);
+}
 free(p);
 if (str == NULL)
 {
 return (NULL);
 }
-else if (p == NULL)
-{
-return (NULL);
-}
-
 }
