@@ -30,7 +30,7 @@ while (s1[i])
 i += 1;
 while (s2[j])
 j += 1;
-r = malloc((i + j) * sizeof(char) + 1);
+r = malloc((i + j) *sizeof(char) + 1);
 if (r == NULL)
 return (NULL);
 
