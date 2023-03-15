@@ -20,12 +20,13 @@ for (i = 0; i < width; i++)
 {
 p[i] = malloc(height * sizeof(p));
 }
-return (p);
 if (width <= 0 || height <= 0)
 {
 return (NULL);
 }
-else if (p == 0)
+return (p);
+free(p);
+if (p == 0)
 {
 return (NULL);
 }
