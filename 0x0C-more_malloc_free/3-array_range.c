@@ -21,7 +21,7 @@ if (min > max)
 return (NULL);
 }
 o = max - min + 1;
-p = (int *)malloc(o * sizeof(*p));
+p = (int *)malloc(o *sizeof(*p));
 if (p == NULL)
 {
 return (NULL);
