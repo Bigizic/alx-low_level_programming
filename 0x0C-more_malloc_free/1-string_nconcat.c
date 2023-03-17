@@ -21,13 +21,13 @@ if (n >= ls2)
 {
 n = ls2;
 }
-if (s1 == NULL)
+else if (s1 == NULL)
 {
-n = 0;
+s1 = "";
 }
-if (s2 == NULL)
+else if (s2 == NULL)
 {
-n = 0;
+s2 = "";
 }
 p = (char *)malloc((ls1 + n + 1) * sizeof(char));
 if (p == NULL)
