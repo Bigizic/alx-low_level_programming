@@ -12,32 +12,29 @@
 * Return: 0 if success ..
 */
 
-/**char *string_nconcat(char *s1, char *s2, unsigned int n)
-{
-unsigned int ls1 = strlen(s1);
-unsigned int ls2 = strlen(s2);
-char *p;
-if (s1 == NULL || s2 == NULL)
-{
-s1 = "";
-s2 = "";
-}
-if (n >= ls2)
-{
-n = ls2;
-}
-
-p = (char *)malloc((ls1 + n + 1) * sizeof(char));
-if (p == NULL)
-{
-return (NULL);
-}
-memcpy(p, s1, ls1);
-memcpy(p + ls1, s2, n);
-p[ls1 + n] = '\0';
-return (p);
-
-}
+/**
+* unsigned int ls1 = strlen(s1);
+* unsigned int ls2 = strlen(s2);
+* char *p;
+* if (s1 == NULL || s2 == NULL)
+* {
+* s1 = "";
+* s2 = "";
+* }
+* if (n >= ls2)
+* {
+* n = ls2;
+* }
+* p = (char *)malloc((ls1 + n + 1) * sizeof(char));
+* if (p == NULL)
+* {
+* return (NULL);
+* }
+* memcpy(p, s1, ls1);
+* memcpy(p + ls1, s2, n);
+* p[ls1 + n] = '\0';
+* return (p);
+* }
 */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
