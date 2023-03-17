@@ -26,9 +26,9 @@ if (p == NULL)
 {
 return (NULL);
 }
-else if (s1 == NULL && s2 == NULL)
+else if (s1 == NULL || s2 == NULL)
 {
-return (" ");
+return ("");
 }
 memcpy(p, s1, ls1);
 memcpy(p + ls1, s2, n);
