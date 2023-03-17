@@ -21,6 +21,14 @@ if (n >= ls2)
 {
 n = ls2;
 }
+if (s1 == NULL)
+{
+n = 0;
+}
+if (s2 == NULL)
+{
+n = 0;
+}
 p = (char *)malloc((ls1 + n + 1) * sizeof(char));
 if (p == NULL)
 {
