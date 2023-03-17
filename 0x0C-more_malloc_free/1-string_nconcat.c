@@ -19,7 +19,8 @@ unsigned int ls2 = strlen(s2);
 char *p;
 if (s1 == NULL || s2 == NULL)
 {
-return (" ");
+s1 = "";
+s2 = "";
 }
 if (n >= ls2)
 {
