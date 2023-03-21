@@ -18,7 +18,7 @@ return;
 }
 if (d->name == NULL)
 {
-printf("(nil)\n");
+printf("Name: (nil)\n");
 }
 else
 {
@@ -34,7 +34,7 @@ printf("Age : %.2f\n", d->age);
 }
 if (d->owner == NULL)
 {
-printf("(nil)\n");
+printf("Owner: (nil)\n");
 }
 else
 {
