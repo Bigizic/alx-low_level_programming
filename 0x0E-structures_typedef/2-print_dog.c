@@ -16,7 +16,14 @@ if (d == NULL)
 {
 return;
 }
-printf("Name: %s\n", d->name != NULL ? d->name : "(nil)");
+if (d->name == NULL)
+{
+printf("(nil)\n");
+}
+else
+{
+printf("Name: %s\n", d->name);
+}
 if (isnan(d->age))
 {
 printf("nil\n");
@@ -25,6 +32,12 @@ else
 {
 printf("Age : %.2f\n", d->age);
 }
-printf("Owner: %s\n", d->owner != NULL ? d->owner : "(nil)");
-return;
+if (d->owner == NULL)
+{
+printf("(nil)\n");
+}
+else
+{
+printf("Owner: %s\n", d->owner);
+}
 }
