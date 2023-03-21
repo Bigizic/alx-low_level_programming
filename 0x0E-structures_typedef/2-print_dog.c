@@ -12,32 +12,10 @@
 
 void print_dog(struct dog *d)
 {
-if (d == NULL)
+if (d)
 {
-return;
-}
-if (d->name == NULL)
-{
-printf("Name: (nil)\n");
-}
-else
-{
-printf("Name: %s\n", d->name);
-}
-if (isnan(d->age))
-{
-printf("nil\n");
-}
-else
-{
-printf("Age : %.2f\n", d->age);
-}
-if (d->owner == NULL)
-{
-printf("Owner: (nil)\n");
-}
-else
-{
-printf("Owner: %s\n", d->owner);
+d->name ? (printf("Name: %s\n", d->name)) : (printf("Name: (nil)\n"));
+printf("Age: %.1f\n", d->age);
+d->owner ? (printf("Owner: %s\n", d->owner)) : (printf("Owner: (nil)\n"));
 }
 }
