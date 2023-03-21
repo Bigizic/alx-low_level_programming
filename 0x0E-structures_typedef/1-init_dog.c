@@ -8,6 +8,7 @@
 * @name: char type ..
 * @age: float type ..
 * @owner: char type ..
+* @d: pointer to my_dog ..
 * Return: 0 if success ..
 */
 
