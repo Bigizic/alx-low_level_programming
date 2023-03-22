@@ -74,10 +74,10 @@ if (*(words + j) == NULL)
 return (NULL);
 k = 0;
 }
-*(*(words + j) + k) = *(str + i);
+*(*(words + j) +k) = *(str + i);
 k++;
 if (*(str + i + 1) == '\0' || *(str + i + 1) == ' ')
-*(*(words + j) + k) = '\0';
+*(*(words + j) +k) = '\0';
 }
 prev_char = *(str + i);
 }
