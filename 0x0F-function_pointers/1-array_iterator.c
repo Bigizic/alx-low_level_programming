@@ -7,6 +7,7 @@
 * array_iterator - executes a function given as a parameter ..
 * @array: int type ..
 * @action: void pointer ..
+* @size: size_t type ..
 * Return: 0 if success .
 */
 
@@ -21,7 +22,7 @@ if (size <= 0)
 {
 return;
 }
-for (i= 0; i < size; i++)
+for (i = 0; i < size; i++)
 {
 action(array[i]);
 }
