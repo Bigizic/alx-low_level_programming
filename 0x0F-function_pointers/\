@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "3-calc.h"
 /*header*/
 
@@ -31,6 +30,6 @@ if (strcmp(s, ops[i].op) == 0)
 return (ops[i].f);
 }
 i++;
-}
 return (NULL);
+}
 }
