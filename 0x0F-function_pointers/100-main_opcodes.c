@@ -7,6 +7,7 @@
 * main - prints it's own opcode ..
 * @argc: int type ..
 * @argv: char type ..
+* Return: 0 if success ..
 */
 
 int main(int argc, char **argv)
