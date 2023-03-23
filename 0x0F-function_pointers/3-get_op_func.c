@@ -5,7 +5,7 @@
 /*header*/
 
 /**
-* *get_op_func -  selects the correct function to perform 
+* *get_op_func -  selects the correct function to perform ..
 * the operation asked by the user ..
 * @s: char type ..
 * Return: 0 if success ..
@@ -13,8 +13,7 @@
 
 int (*get_op_func(char *s))(int, int)
 {
-op_t ops[] = 
-{
+op_t ops[] = {
 {"+", op_add},
 {"-", op_sub},
 {"*", op_mul},
