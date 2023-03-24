@@ -23,7 +23,7 @@ return (0);
 }
 for (i = 0; i < n; i++)
 {
-su +=va_arg(args, int);
+su += va_arg(args, int);
 }
 va_end(args);
 return (su);
