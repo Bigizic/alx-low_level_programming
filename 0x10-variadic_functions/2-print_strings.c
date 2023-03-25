@@ -18,7 +18,7 @@ unsigned int i;
 va_start(args, n);
 for (i = 0; i < n; i++)
 {
-const char* str = va_arg(args, const char*);
+const char *str = va_arg(args, const char*);
 if (str == NULL)
 {
 printf("(nil)");
