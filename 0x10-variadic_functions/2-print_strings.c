@@ -21,9 +21,13 @@ for (i = 0; i < n; i++)
 const char *str = va_arg(args, const char*);
 if (str == NULL)
 {
-printf("(nil)");
+printf("(nil)\n");
+return;
 }
+else
+{
 printf("%s", str);
+}
 if (i != n - 1 && separator != NULL)
 {
 printf("%s", separator);
