@@ -2,7 +2,7 @@
 /* header */
 
 /**
-* free_list - frees a list_t list 
+* free_list - frees a list_t list
 * @head: pointer to list_t
 * Return: 0 if succes
 */
