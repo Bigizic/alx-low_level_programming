@@ -12,3 +12,8 @@ mov rbp, rsp
 lea rdi, [message]
 xor eax, eax
 call printf
+
+mov rsp, rbp
+pop rbp
+xor eax, eax
+ret
