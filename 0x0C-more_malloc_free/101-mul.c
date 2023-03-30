@@ -17,6 +17,7 @@
 void condition(int argc, char *argv[], int i, int j)
 {
 	unsigned long int y, u;
+	int x;
 	const char e[] = "Error";
 
 	if (argc != 3)
@@ -36,6 +37,14 @@ void condition(int argc, char *argv[], int i, int j)
 		}
 		putchar('\n');
 		exit(98);
+	}
+	for (x = i; x <= j; x++)
+	{
+		if (strlen(argv[x]) > 10)
+		{
+			printf("READ\n");
+			exit(98);
+		}
 	}
 }
 
