@@ -1,8 +1,68 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "main.h"
 #include <ctype.h>
 /*header*/
+
+/**
+* print_number - prints the value of a number
+* mul: int type
+* numD: int type
+* Return: 0 if success
+*/
+
+void print_number(int mul, int numD)
+{
+	int k, h;
+	char output[MAX_DIGITS];
+
+	for (k = numD - 1; k >= 0; k--)
+	{
+		output[k] = '0' + (mul % 10);
+		mul = mul / 10;
+	}
+	for (h = 0; h < numD; h++)
+	{
+		putchar(output[h]);
+	}
+	putchar('\n');
+}
+
+/**
+* condition - if statements that handles conditions
+* @argc: int type
+* @argv: char type
+* @i: int type
+* @j: int type
+* Return: 0 if success
+*/
+
+void condition(int argc, char *argv[], int i, int j)
+{
+	unsigned long int y, u;
+	const char e[] = "Error";
+
+	if (argc != 3)
+	{
+		for (y = 0; y < sizeof(e) / sizeof(e[0]); y++)
+		{
+			putchar(e[y]);
+		}
+		putchar('\n');
+		exit(98);
+	}
+	if (!isdigit(*argv[i]) || !isdigit(*argv[j]))
+	{
+		for (u = 0; u < sizeof(e) / sizeof(e[0]); u++)
+		{
+			putchar(e[u]);
+		}
+		putchar('\n');
+		exit(98);
+	}
+}
+
 
 /**
 * main - multiplies two numbers..
@@ -13,36 +73,10 @@
 
 int main(int argc, char *argv[])
 {
-	int i = 1;
-	int j = 2;
-	int mul;
-	int numD = 0;
-	int temp;
-	int k, h;
-	unsigned long int y, u, q;
-	char output[MAX_DIGITS];
-	const char e[] = "Error";
-	int num1 = atoi(argv[i]);
-	int num2 = atoi(argv[j]);
-
-	if (argc != 3)
-	{
-		for (y = 0; y < sizeof(e) / sizeof(e[0]); y++)
-		{
-		putchar(e[y]);
-		}
-		putchar('\n');
-		exit(98);
-	}
-	if (!isdigit(*argv[i]) || !isdigit(*argv[j]))
-	{
-		for (u = 0; u < sizeof(e) / sizeof(e[0]); u++)
-		{
-		putchar(e[u]);
-		}
-		putchar('\n');
-		exit(98);
-	}
+	int i = 1, j = 2, mul, numD = 0, temp;
+	unsigned long int q;
+	char e[] = "Error";
+	int num1 = atoi(argv[i]), num2 = atoi(argv[j]);
 	mul = num1 * num2;
 	if (mul == 0)
 	{
@@ -66,23 +100,13 @@ int main(int argc, char *argv[])
 	{
 		for (q = 0; q < sizeof(e) / sizeof(e[q]); q++)
 		{
-		putchar(e[q]);
+			putchar(e[q]);
 		}
 		putchar('\n');
 		exit(98);
 	}
-
-	for (k = numD - 1; k >= 0; k--)
-	{
-		output[k] = '0' + (mul % 10);
-		mul = mul / 10;
 	}
-	for (h  = 0; h < numD; h++)
-	{
-		putchar(output[h]);
-	}
-	}
-	putchar('\n');
+	print_number(mul, numD);
+	condition(argc, *argv[], i, j);
 	return (0);
 }
-
