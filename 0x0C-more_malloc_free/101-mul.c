@@ -5,9 +5,9 @@
 /*header*/
 
 /**
-* main - multiplies two numbers
-* argc: int type
-* argv: char type
+* main - multiplies two numbers..
+* argc: int type..
+* argv: char type..
 * Return: 0 if success
 */
 
@@ -19,19 +19,27 @@ int main(int argc, char *argv[])
 	int numD = 0;
 	int temp;
 	int k, h;
+	unsigned long int y, u, q;
 	char output[MAX_DIGITS];
-	char *e = "Error";
+	const char e[] = "Error";
 	int num1 = atoi(argv[i]);
 	int num2 = atoi(argv[j]);
+
 	if (argc != 3)
 	{
-		putchar(*e);
+		for (y = 0; y < sizeof(e) / sizeof(e[0]); y++)
+		{
+		putchar(e[y]);
+		}
 		putchar('\n');
 		exit(98);
 	}
 	if (!isdigit(*argv[i]) || !isdigit(*argv[j]))
 	{
-		putchar(*e);
+		for (u = 0; u < sizeof(e) / sizeof(e[0]); u++)
+		{
+		putchar(e[u]);
+		}
 		putchar('\n');
 		exit(98);
 	}
@@ -47,7 +55,7 @@ int main(int argc, char *argv[])
 			putchar ('-');
 			mul = -mul;
 		}
-	numD = 0;
+
 	temp = mul;
 	while (temp > 0)
 	{
@@ -56,7 +64,11 @@ int main(int argc, char *argv[])
 	}
 	if (numD > MAX_DIGITS)
 	{
-		putchar(*e);
+		for (q = 0; q < sizeof(e) / sizeof(e[q]); q++)
+		{
+		putchar(e[q]);
+		}
+		putchar('\n');
 		exit(98);
 	}
 
@@ -65,7 +77,7 @@ int main(int argc, char *argv[])
 		output[k] = '0' + (mul % 10);
 		mul = mul / 10;
 	}
-	for (h  = 0; h < numD; k++)
+	for (h  = 0; h < numD; h++)
 	{
 		putchar(output[h]);
 	}
