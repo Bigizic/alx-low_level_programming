@@ -6,30 +6,6 @@
 /*header*/
 
 /**
-* print_number - prints the value of a number
-* mul: int type
-* numD: int type
-* Return: 0 if success
-*/
-
-void print_number(int mul, int numD)
-{
-	int k, h;
-	char output[MAX_DIGITS];
-
-	for (k = numD - 1; k >= 0; k--)
-	{
-		output[k] = '0' + (mul % 10);
-		mul = mul / 10;
-	}
-	for (h = 0; h < numD; h++)
-	{
-		putchar(output[h]);
-	}
-	putchar('\n');
-}
-
-/**
 * condition - if statements that handles conditions
 * @argc: int type
 * @argv: char type
@@ -63,11 +39,34 @@ void condition(int argc, char *argv[], int i, int j)
 	}
 }
 
+/**
+* print_number - prints the value of a number
+* @mul: int type
+* @numD: int type
+* Return: 0 if success
+*/
+
+void print_number(int mul, int numD)
+{
+	int k, h;
+	char output[MAX_DIGITS];
+
+	for (k = numD - 1; k >= 0; k--)
+	{
+		output[k] = '0' + (mul % 10);
+		mul = mul / 10;
+	}
+	for (h = 0; h < numD; h++)
+	{
+		putchar(output[h]);
+	}
+	putchar('\n');
+}
 
 /**
 * main - multiplies two numbers..
-* argc: int type..
-* argv: char type..
+* @argc: int type..
+* @argv: char type..
 * Return: 0 if success
 */
 
@@ -77,6 +76,7 @@ int main(int argc, char *argv[])
 	unsigned long int q;
 	char e[] = "Error";
 	int num1 = atoi(argv[i]), num2 = atoi(argv[j]);
+
 	mul = num1 * num2;
 	if (mul == 0)
 	{
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	}
+	condition(argc, argv, i, j);
 	print_number(mul, numD);
-	condition(argc, *argv[], i, j);
 	return (0);
 }
