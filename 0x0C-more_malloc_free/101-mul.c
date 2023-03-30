@@ -14,7 +14,7 @@
 * Return: 0 if success
 */
 
-void *condition(int argc, char *argv[], int i, int j)
+void condition(int argc, char *argv[], int i, int j)
 {
 	unsigned long int y, u;
 	const char e[] = "Error";
@@ -46,7 +46,7 @@ void *condition(int argc, char *argv[], int i, int j)
 * Return: 0 if success
 */
 
-void *print_number(int mul, int numD)
+void print_number(int mul, int numD)
 {
 	int k, h;
 	char output[MAX_DIGITS];
