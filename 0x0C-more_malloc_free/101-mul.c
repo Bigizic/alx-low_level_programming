@@ -40,7 +40,7 @@ void condition(int argc, char *argv[], int i, int j)
 	}
 	for (x = i; x <= j; x++)
 	{
-		if (strlen(argv[x]) > 10)
+		if (strlen(argv[x]) > 10000000000000)
 		{
 			for (z = 0; z < sizeof(e) / sizeof(e[0]); z++)
 			{
