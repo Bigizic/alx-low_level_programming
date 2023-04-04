@@ -6,15 +6,15 @@
 * a listint_t linked list.
 * @head: pointer to a pointer that points to listint_t
 * @index: unsigned int
-* Reeturn: 0 if success
+* Return: 0 if success
 */
 
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *current_node, *prev_node;
-
 	unsigned int len = count_nodes(*head);
 	unsigned int count = 0;
+
 	current_node = *head, prev_node = NULL;
 
 	if (*head == NULL)
@@ -47,4 +47,24 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		count++;
 	}
 	return (-1);
+}
+
+/* fucntion count_nodes */
+
+/**
+* count_nodes - counts the number of nodes in a listint_t linked list
+* @head: pointer to head of the linked list
+* Return: 0 if success
+*/
+int count_nodes(listint_t *head)
+{
+	int count = 0;
+	listint_t *current_node = head;
+
+	while (current_node != NULL)
+	{
+		count++;
+		current_node = current_node->next;
+	}
+	return (count);
 }
