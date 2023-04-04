@@ -49,14 +49,14 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	return (-1);
 }
 
-/* fucntion count_nodes */
+/* function count_nodes */
 
 /**
 * count_nodes - counts the number of nodes in a listint_t linked list
 * @head: pointer to head of the linked list
 * Return: 0 if success
 */
-int count_nodes(listint_t *head)
+unsigned int count_nodes(listint_t *head)
 {
 	int count = 0;
 	listint_t *current_node = head;
