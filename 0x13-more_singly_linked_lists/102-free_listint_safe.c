@@ -11,21 +11,25 @@ size_t free_listint_safe(listint_t **h)
 {
 	listint_t *current_node, *next_node;
 	size_t count = 0;
-	size_t i;
 
-	current_node = *h;
-
-	while (current_node != NULL)
+	while (*h != NULL)
 	{
-		for (i = 0; i < count; i++)
+		current_node = *h;
+		next_node = NULL;
+		*h = (*h)->next;
+
+		if (current_node <= next_node)
 		{
-			next_node = current_node->next;
 			free(current_node);
 			count++;
-			current_node = next_node;
+		}
+		else
+		{
+			free(current_node);
+			count++;
+			break;
 		}
 	}
-	*h = NULL;
 
 	return (count);
 }
