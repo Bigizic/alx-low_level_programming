@@ -12,7 +12,7 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *current_node, *next_node;
 	size_t count = 0;
 
-	current_node = (listint_t *) head;
+	current_node = head;
 
 	while (current_node != NULL)
 	{
@@ -29,13 +29,13 @@ size_t print_listint_safe(const listint_t *head)
 		{
 			count++;
 
-			printf("[%p} %d\n", (void *)current_node, current_node->n);
+			printf("[%p] %d\n", (void *)current_node, current_node->n);
 
 			printf("-> [%p] %d\n", (void *)next_node, next_node->n);
 
 		}
 
 	}
-	return (count);
 	exit(98);
+	return (count);
 }
