@@ -12,11 +12,13 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *current_node, *next_node;
 	size_t count = 0;
 
+	current_node = *h;
+	next_node = NULL;
+
 	while (*h != NULL)
 	{
-		current_node = *h;
-		next_node = NULL;
-		*h = (*h)->next;
+		next_node = current_node->next;
+		*h = next_node;
 
 		if (current_node <= next_node)
 		{
@@ -31,5 +33,6 @@ size_t free_listint_safe(listint_t **h)
 		}
 	}
 
+	*h = NULL;
 	return (count);
 }
