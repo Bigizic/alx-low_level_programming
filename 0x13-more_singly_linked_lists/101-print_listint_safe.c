@@ -23,9 +23,9 @@ size_t print_listint_safe(const listint_t *head)
 		if (next_node <= current_node)
 		{
 			printf("-> [%p] %d\n", (void *)next_node, next_node->n);
-				exit(98);
 		}
 		current_node = next_node;
 	}
 	return (count);
+	exit(98);
 }
