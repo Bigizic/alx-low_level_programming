@@ -10,9 +10,9 @@
 listint_t *reverse_listint(listint_t **head)
 {
 	listint_t *prev_node, *current_node, *next_node;
-	unsigned int count;
 
 	current_node = *head;
+	prev_node = NULL;
 	next_node = NULL;
 
 	if (*head == NULL)
@@ -26,8 +26,7 @@ listint_t *reverse_listint(listint_t **head)
 		current_node->next = prev_node;
 		prev_node = current_node;
 		current_node = next_node;
-		count++;
 	}
 	*head = prev_node;
-	return (current_node)
+	return (prev_node);
 }
