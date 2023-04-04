@@ -17,22 +17,19 @@ size_t free_listint_safe(listint_t **h)
 		return (0);
 	}
 	current_node = *h;
-	next_node = (*h)->next;
 
 	while (current_node != NULL)
 	{
+		next_node = current_node->next;
+		free(current_node);
+		count++;
 
-		if (current_node <= next_node)
+		if (next_node >= current_node)
 		{
-			free(current_node);
-			count++;
 			current_node = next_node;
-			next_node = next_node != NULL ? next_node->next : NULL;
 		}
 		else
 		{
-			free(current_node);
-			count++;
 			break;
 		}
 	}
