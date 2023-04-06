@@ -23,9 +23,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	for (i = 0; i < letters; i++)
+	while (filename != NULL)
 	{
-		return (i);
+		letters++
+		return (letters);
 	}
 
 	close(fptr);
