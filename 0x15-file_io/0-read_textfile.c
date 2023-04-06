@@ -10,24 +10,23 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fptr = open("filename", O_RDONLY);
-	int i;
+	FILE *fptr = fopen(filename, 'r');
+	char buffer[letters];
+	size_t read;
+	ssize_t print;
 
-	if (filename == NULL)
+	if (filename == NULL || fptr = NULL)
 	{
 		return (0);
 	}
 
-	if (fptr == NULL)
+	read = fread(buffer, sizeof(char), letters, fptr);
+	print = write(STDOUT_FILENO, buffer, read);
+
+	if (print == NULL || print != read)
 	{
 		return (0);
 	}
-
-	while (filename != NULL)
-	{
-		letters++
-		return (letters);
-	}
-
-	close(fptr);
+	fclose(fptr);
+	return (read);
 }
