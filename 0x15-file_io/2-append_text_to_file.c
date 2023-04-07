@@ -11,39 +11,38 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	FILE *ptrf;
-	int del;
-	int exist = access(filename, F_OK);
+	int exist;
 	size_t length = strlen(text_content);
 	size_t print;
-	size_t *i = NULL;
 
 	if (filename == NULL)
 	{
 		return (-1);
 	}
 
-	if (exist == 0)
-	{
-		ptrf = fopen(filename, "w");
-		del = chmod(filename, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP |     S_IROTH);
-		return (1);
-	}
+	exist = access(filename, F_OK);
 	if (exist == -1)
 	{
-		ptrf = NULL;
 		return (-1);
 	}
+	ptrf = fopen(filename, "a");
 	if (ptrf == NULL)
 	{
 		return (-1);
 	}
 
-	print = fwrite(text_content, sizeof(char), length, ptrf);
-
 	if (text_content == NULL)
 	{
-		(size_t)print = i;
 		fclose(ptrf);
+		return (0);
 	}
+
+	print = fwrite(text_content, sizeof(char), length, ptrf);
 	fclose(ptrf);
+
+	if (print != length)
+	{
+		return (-1);
+	}
+	return (1);
 }
