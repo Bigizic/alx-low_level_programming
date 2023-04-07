@@ -2,7 +2,7 @@
 /* header */
 
 /**
-* read2fun - function for read 2
+* checkRead - function for read 2
 * @r2: size_t type
 * @f1: FILE type
 * @fr: char pointer to a pointer
@@ -11,7 +11,7 @@
 * Return: 0 if success
 */
 
-int read2fun(size_t *r2, FILE **f1, char **fr, int *f2, char **buff)
+int checkRead(size_t *r2, FILE **f1, char **fr, int *f2, char **buff)
 {
 	if (r2 == 0 && ferror(*f1))
 	{
@@ -26,7 +26,7 @@ int read2fun(size_t *r2, FILE **f1, char **fr, int *f2, char **buff)
 
 
 /**
-* fd_value - checks for value of file descriptor
+* closeFiles - checks for value of file descriptor
 * @f1: FILE type
 * @fr: char type
 * @f2: int type
@@ -35,7 +35,7 @@ int read2fun(size_t *r2, FILE **f1, char **fr, int *f2, char **buff)
 * Return: value of file descriptor
 */
 
-int fd_value(FILE **f1, char **fr, int *f2, char **buff, char **ft)
+int closeFiles(FILE **f1, char **fr, int *f2, char **buff, char **ft)
 {
 	int j;
 	int i = fclose(f1);
@@ -106,8 +106,8 @@ int two_files(char *file_from, char *file_to, size_t count)
 			exit(99);
 		}
 	}
-	read2fun(&read2, &file1, &file_from, &file2, &buffer);
-	fd_value(&file1, &file_from, &file2, &buffer, &file_to);
+	checkRead(&read2, &file1, &file_from, &file2, &buffer);
+	closeFiles(&file1, &file_from, &file2, &buffer, &file_to);
 	free(buffer);
 	return (0);
 }
