@@ -13,7 +13,7 @@
 
 int checkRead(size_t *r2, FILE **f1, char **fr, int *f2, char **buff)
 {
-	if (r2 == 0 && ferror(*f1))
+	if (*r2 == 0 && ferror(*f1))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", *fr);
 		fclose(*f1);
@@ -38,20 +38,20 @@ int checkRead(size_t *r2, FILE **f1, char **fr, int *f2, char **buff)
 int closeFiles(FILE **f1, char **fr, int *f2, char **buff, char **ft)
 {
 	int j;
-	int i = fclose(f1);
+	int i = fclose(*f1);
 
 	if (i == EOF)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close %s\n", *fr);
-		close(f2);
+		close(*f2);
 		free(*buff);
 		exit(100);
 	}
 
-	j = fclose(f2);
+	j = fclose(*f2);
 	if (j == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close %d\n", f2);
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", *f2);
 		free(*buff);
 		exit(100);
 	}
