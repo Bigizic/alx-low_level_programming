@@ -12,7 +12,7 @@
 int two_files(char *file_from, char *file_to, size_t count)
 {
 	FILE *file1;
-	int file2, i, g, j;
+	int file2, i, j;
 	ssize_t print;
 	size_t read2;
 	char *buffer = malloc(count);
@@ -36,7 +36,7 @@ int two_files(char *file_from, char *file_to, size_t count)
 		exit(99);
 	}
 	read2 = fread(buffer, sizeof(char), count, file1);
-	while (read2 > 0)
+	if (read2 > 0)
 	{
 		print = write(file2, buffer, read2);
 		if (print == -1)
