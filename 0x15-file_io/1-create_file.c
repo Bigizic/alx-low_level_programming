@@ -10,31 +10,32 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	FILE *ptrfile = fopen(filename, "w");
-	size_t i;
-	size_t print;
+	int ptrfile;
+	int i;
+	ssize_t print;
 
-	chmod(filename, 0600);
-
-	if (filename == NULL || ptrfile == NULL)
+	if (filename == NULL)
 	{
 		return (-1);
 	}
 
-	if (text_content == NULL)
+	ptrfile = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+	if (ptrfile == -1)
 	{
-		fclose(ptrfile);
-		return ('\0');
-	}
-	i = strlen(text_content);
-
-	print = fwrite(text_content, sizeof(char), i, ptrfile);
-
-	if ((size_t)print < i)
-	{
-		fclose(ptrfile);
 		return (-1);
 	}
-	fclose(ptrfile);
+
+	if (text_content != NULL)
+	{
+		i = strlen(text_content);
+		print = write(ptrfile, text_content, i);
+
+	if (print != i)
+	{
+		close(ptrfile);
+		return (-1);
+	}
+	}
+	close(ptrfile);
 	return (1);
 }
