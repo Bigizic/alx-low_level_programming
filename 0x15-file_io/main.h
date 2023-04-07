@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
+#include <sys/stat.h>
 /* headers */
 
 /* prototype */
