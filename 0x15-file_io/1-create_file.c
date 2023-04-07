@@ -11,7 +11,7 @@
 int create_file(const char *filename, char *text_content)
 {
 	FILE *ptrfile = fopen(filename, "w");
-	size_t i = strlen(text_content);
+	size_t i;
 	size_t print;
 
 	chmod(filename, 0600);
@@ -24,7 +24,9 @@ int create_file(const char *filename, char *text_content)
 	if (text_content == NULL)
 	{
 		fclose(ptrfile);
+		return ('\0');
 	}
+	i = strlen(text_content);
 
 	print = fwrite(text_content, sizeof(char), i, ptrfile);
 
