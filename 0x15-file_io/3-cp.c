@@ -12,14 +12,13 @@
 int two_files(char *file_from, char *file_to, size_t count)
 {
 	FILE *file1;
-	int file2, i, j;
+	int file2;
 	ssize_t print;
 	size_t read2;
 	char *buffer = malloc(count);
 
 	if (buffer == NULL)
 		return (-1);
-
 	file1 = fopen(file_from, "r");
 	if (file1 == NULL)
 	{
@@ -48,35 +47,64 @@ int two_files(char *file_from, char *file_to, size_t count)
 			exit(99);
 		}
 	}
+	read2fun(read2, file1, file2, buffer);
+	fd_value(fclose(file1), close(file2), file_from, file2, buffer);
+	free(buffer);
+	return (0);
+}
 
-	if (read2 == 0 && ferror(file1))
+
+/**
+* read2fun - function for read 2
+* @read2: size_t type
+* @file1: FILE type
+* @file2: int type
+* @buffer: pointer to a pointer
+* Return: 0 if success
+*/
+
+int read2fun(size_t *read2, FILE **file1, int *file2, char **buffer)
+{
+	if (read2 == 0 && ferror(*file1))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file_from);
-		fclose(file1);
-		close(file2);
-		free(buffer);
+		fclose(*file1);
+		close(*file2);
+		free(*buffer);
 		exit(98);
 	}
-	i = fclose(file1);
+	return (0);
+}
+
+
+/**
+* fd_value - checks for value of file descriptor
+* @i: int type
+* @j: int type
+* @file_from: pointer to a pointer
+* @file2: int type
+* @buffer: pointer to a pointer
+* Return: value of file descriptor
+*/
+
+int fd_value(int *i, int *j, char **file_from, int *file2, char **buffer)
+{
 	if (i == EOF)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close %s\n", file_from);
-		close(file2);
-		free(buffer);
+		dprintf(STDERR_FILENO, "Error: Can't close %s\n", *file_from);
+		close(*file2);
+		free(*buffer);
 		exit(100);
 	}
-	j = close(file2);
+
 	if (j == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close %d\n", file2);
 		free(buffer);
 		exit(100);
 	}
-	free(buffer);
 	return (0);
 }
-
-
 
 
 /**
