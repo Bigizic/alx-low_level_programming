@@ -11,33 +11,26 @@
 int create_file(const char *filename, char *text_content)
 {
 	FILE *ptrfile = fopen(filename, "w");
-	size_t i = 0;
-	ssize_t print;
+	size_t i = strlen(text_content);
+	size_t print;
 
-	if (filename == NULL )
-	{
-		return (-1);
-	}
-	
-	if (ptrfile == NULL)
+	if (filename == NULL || ptrfile == NULL)
 	{
 		return (-1);
 	}
 
-	if (text_content != NULL)
+	if (text_content == NULL)
 	{
-		while (text_content[i] != '\0')
-		{
-			i++;
-
-			print = fwrite(text_content, sizeof(char), i, ptrfile);
-			if (print != i)
-			{
-				fclose(ptrfile);
-				return (-1);
-			}
-		}
-	}
 		fclose(ptrfile);
-		return (1);
+	}
+
+	print = fwrite(text_content, sizeof(char), i, ptrfile);
+
+	if ((size_t)print < i)
+	{
+		fclose(ptrfile);
+		return (-1);
+	}
+	fclose(ptrfile);
+	return (1);
 }
