@@ -10,34 +10,40 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	FILE *ptrf = fopen(filename, "w");
+	FILE *ptrf;
+	int del;
+	int exist = access(filename, F_OK);
 	size_t length = strlen(text_content);
 	size_t print;
+	size_t *i = NULL;
 
 	if (filename == NULL)
 	{
 		return (-1);
 	}
 
-	if (text_content == NULL)
+	if (exist == 0)
 	{
-		fclose(ptrf);
-		if (ptrf != NULL)
-		{
-			return (1);
-		}
-		if (ptrf == NULL)
-		{
-			return (-1);
-		}
+		ptrf = fopen(filename, "w");
+		del = chmod(filename, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP |     S_IROTH);
+		return (1);
 	}
-	print = fwrite(text_content, sizeof(char), length, ptrf);
-	if ((size_t)print < length)
+	if (exist == -1)
 	{
-		fclose(ptrf);
+		ptrf = NULL;
 		return (-1);
 	}
-	fclose(ptrf);
-	return (1);
-}
+	if (ptrf == NULL)
+	{
+		return (-1);
+	}
 
+	print = fwrite(text_content, sizeof(char), length, ptrf);
+
+	if (text_content == NULL)
+	{
+		(size_t)print = i;
+		fclose(ptrf);
+	}
+	fclose(ptrf);
+}
