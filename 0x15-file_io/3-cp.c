@@ -47,7 +47,7 @@ int two_files(char *file_from, char *file_to, size_t count)
 			exit(99);
 		}
 	}
-	read2fun(read2, file1, file2, buffer);
+	read2fun((size_t *)read2, (FILE)file1, *file2, *buffer);
 	fd_value(fclose(file1), close(file2), file_from, file2, buffer);
 	free(buffer);
 	return (0);
