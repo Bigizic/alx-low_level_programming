@@ -10,26 +10,34 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	FILE *ptrfile = fopen(filename, "rw");
-	int i = strlen(text_content);
-	char *buffer = malloc(i * sizeof(char));
-	size_t read;
+	FILE *ptrfile = fopen(filename, "w");
+	size_t i = 0;
 	ssize_t print;
 
 	if (filename == NULL )
 	{
 		return (-1);
 	}
-	read = fread(buffer, sizeof(char), i, ptrfile);
-	print = write(STDOUT_FILENO, buffer, read);
-
-	fclose(ptrfile);
-
-	if (ptrfile == NULL || (size_t)print < 0)
+	
+	if (ptrfile == NULL)
 	{
 		return (-1);
 	}
-	else
+
+	if (text_content != NULL)
 	{
-		return (1);
+		while (text_content[i] != '\0')
+		{
+			i++;
+
+			print = fwrite(text_content, sizeof(char), i, ptrfile);
+			if (print != i)
+			{
+				fclose(ptrfile);
+				return (-1);
+			}
+		}
 	}
+		fclose(ptrfile);
+		return (1);
+}
