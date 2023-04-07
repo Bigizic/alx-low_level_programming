@@ -1,6 +1,9 @@
 #include "main.h"
 /* header */
 
+int read2fun(size_t *read2, FILE **file1, int *file2, char **buffer, char *file_from);
+int fd_value(int *i, int *j, char **file_from, int *file2, char **buffer);
+
 /**
 * two_files - contains two files and run the program
 * @file_from: char pointer to first file
@@ -47,8 +50,8 @@ int two_files(char *file_from, char *file_to, size_t count)
 			exit(99);
 		}
 	}
-	read2fun((size_t *)read2, (FILE)file1, *file2, *buffer);
-	fd_value(fclose(file1), close(file2), file_from, file2, buffer);
+	read2fun(&read2, &file1, &file2, &buffer, file_from);
+	fd_value(fclose(file1), close(file2), &file_from, &file2, &buffer);
 	free(buffer);
 	return (0);
 }
@@ -65,7 +68,7 @@ int two_files(char *file_from, char *file_to, size_t count)
 
 int read2fun(size_t *read2, FILE **file1, int *file2, char **buffer)
 {
-	if (read2 == 0 && ferror(*file1))
+	if (*read2 == 0 && ferror(*file1))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file_from);
 		fclose(*file1);
@@ -97,7 +100,7 @@ int fd_value(int *i, int *j, char **file_from, int *file2, char **buffer)
 		exit(100);
 	}
 
-	if (j == -1)
+	if (*j == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close %d\n", file2);
 		free(buffer);
