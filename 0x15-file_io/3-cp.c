@@ -38,7 +38,6 @@ if (file_to != NULL)
 		exit(99);
 	}
 }
-	
 	i = fclose(file1);
 	g = fileno(file1);
 	j = close(file2);
