@@ -12,26 +12,21 @@
 
 int checkRead(int *r2, int *f1, char **ffrom, int *f2)
 {
-	int *i;
-	int *j;
-
-	if (r2 == -1)
+	if (*r2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", *ffrom);
 		exit(98);
 	}
 
-	i = f1;
-	if (close(i) == -1)
+	if (close(*f1) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", i);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *f1);
 		exit(100);
 	}
 
-	j = f2;
-	if (close(j) == -1)
+	if (close(*f2) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", j);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *f2);
 		exit(100);
 	}
 	exit(EXIT_SUCCESS);
@@ -75,7 +70,7 @@ int two_files(char *file_from, char *file_to)
 		}
 	}
 	checkRead(&read2, &file1, &file_from, &file2);
-	exit(EXIT_SUCCESS);
+	return (0);
 }
 
 
