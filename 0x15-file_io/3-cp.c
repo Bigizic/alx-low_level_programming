@@ -31,7 +31,6 @@ int checkRead(size_t *r2, FILE **f1, char **fr, int *f2, char **buff)
 * @fr: char type
 * @f2: int type
 * @buff: char type to a pointer
-* @ft: pointer to a pointer
 * Return: value of file descriptor
 */
 
@@ -85,7 +84,8 @@ int two_files(char *file_from, char *file_to, size_t count)
 		free(buffer);
 		exit(98);
 	}
-	file2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR | S_IWGRP | S_IROTH);
+	file2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR
+			| S_IWGRP | S_IROTH);
 	if (file2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
@@ -95,7 +95,6 @@ int two_files(char *file_from, char *file_to, size_t count)
 	}
 	read2 = fread(buffer, sizeof(char), count, file1);
 	if (read2 > 0)
-	{
 		print = write(file2, buffer, read2);
 		if (print == -1)
 		{
@@ -105,7 +104,6 @@ int two_files(char *file_from, char *file_to, size_t count)
 			free(buffer);
 			exit(99);
 		}
-	}
 	checkRead(&read2, &file1, &file_from, &file2, &buffer);
 	closeFiles(&file1, &file_from, &file2, &buffer);
 	free(buffer);
