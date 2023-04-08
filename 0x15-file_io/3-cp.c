@@ -3,8 +3,8 @@
 
 /**
 * checkRead - function for read 2
-* @r2: size_t type
-* @f1: FILE type
+* @r2: int type
+* @f1: int type
 * @fr: char pointer to a pointer
 * @f2: int type
 * Return: 0 if success
@@ -43,7 +43,6 @@ int checkRead(int *r2, int *f1, char **ffrom, int *f2)
 * two_files - contains two files and run the program
 * @file_from: char pointer to first file
 * @file_to: char pointer to second file
-* @count: contain 1024 bytes
 * Return: a program that read onef and write to twof
 */
 
