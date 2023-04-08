@@ -54,7 +54,7 @@ int two_files(char *file_from, char *file_to)
 	}
 
 	file2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC);
-	fchmod (file2, 0664);
+	fchmod(file2, 0664);
 	if (file2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
