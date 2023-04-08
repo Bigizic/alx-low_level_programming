@@ -85,7 +85,7 @@ int two_files(char *file_from, char *file_to, size_t count)
 		free(buffer);
 		exit(98);
 	}
-	file2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0644);
+	file2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR | S_IWGRP | S_IROTH);
 	if (file2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
