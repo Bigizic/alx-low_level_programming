@@ -35,7 +35,7 @@ int checkRead(size_t *r2, FILE **f1, char **fr, int *f2, char **buff)
 * Return: value of file descriptor
 */
 
-int closeFiles(FILE **f1, char **fr, int *f2, char **buff, char **ft)
+int closeFiles(FILE **f1, char **fr, int *f2, char **buff)
 {
 	int j;
 	int i = fclose(*f1);
@@ -48,7 +48,7 @@ int closeFiles(FILE **f1, char **fr, int *f2, char **buff, char **ft)
 		exit(100);
 	}
 
-	j = fclose(*f2);
+	j = close(*f2);
 	if (j == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close %d\n", *f2);
@@ -107,7 +107,7 @@ int two_files(char *file_from, char *file_to, size_t count)
 		}
 	}
 	checkRead(&read2, &file1, &file_from, &file2, &buffer);
-	closeFiles(&file1, &file_from, &file2, &buffer, &file_to);
+	closeFiles(&file1, &file_from, &file2, &buffer);
 	free(buffer);
 	return (0);
 }
