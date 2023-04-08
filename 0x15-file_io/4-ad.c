@@ -3,109 +3,74 @@
 
 /**
 * checkRead - function for read 2
-* @r2: size_t type
-* @f1: FILE type
-* @fr: char pointer to a pointer
+* @r2: int type
+* @f1: int type
+* @ffrom: char pointer to a pointer
 * @f2: int type
-* @buff: pointer to a pointer
 * Return: 0 if success
 */
 
-int checkRead(size_t *r2, FILE **f1, char **fr, int *f2, char **buff)
+int checkRead(int *r2, int *f1, char **ffrom, int *f2)
 {
-	if (*r2 == 0 && ferror(*f1))
+	if (*r2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", *fr);
-		fclose(*f1);
-		close(*f2);
-		free(*buff);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", *ffrom);
 		exit(98);
 	}
-	return (0);
-}
 
-
-/**
-* closeFiles - checks for value of file descriptor
-* @f1: FILE type
-* @fr: char type
-* @f2: int type
-* @buff: char type to a pointer
-* Return: value of file descriptor
-*/
-
-int closeFiles(FILE **f1, char **fr, int *f2, char **buff)
-{
-	int j;
-	int i = fclose(*f1);
-
-	if (i == EOF)
+	if (close(*f1) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close %s\n", *fr);
-		close(*f2);
-		free(*buff);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *f1);
 		exit(100);
 	}
 
-	j = close(*f2);
-	if (j == -1)
+	if (close(*f2) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close %d\n", *f2);
-		free(*buff);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *f2);
 		exit(100);
 	}
 	return (0);
-}
 
+}
 
 
 /**
 * two_files - contains two files and run the program
 * @file_from: char pointer to first file
 * @file_to: char pointer to second file
-* @count: contain 1024 bytes
 * Return: a program that read onef and write to twof
 */
 
-int two_files(char *file_from, char *file_to, size_t count)
+int two_files(char *file_from, char *file_to)
 {
-	FILE *file1;
-	int file2;
-	ssize_t print;
-	size_t read2;
-	char *buffer = malloc(count);
+	int file1, file2, print, read2;
+	char buffer[BUFFER];
 
-	file1 = fopen(file_from, "r");
-	if (file1 == NULL)
+	file1 = open(file_from, O_RDONLY);
+	if (file1 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file_from);
-		free(buffer);
 		exit(98);
 	}
-	file2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR | S_IWGRP | S_IROTH);
+
+	file2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC);
+	fchmod(file2, 0664);
 	if (file2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		fclose(file1);
-		free(buffer);
 		exit(99);
 	}
-	read2 = fread(buffer, sizeof(char), count, file1);
+	read2 = read(file1, buffer, BUFFER);
 	if (read2 > 0)
 	{
 		print = write(file2, buffer, read2);
-		if (print == -1)
+		if (print != read2)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-			fclose(file1);
-			close(file2);
-			free(buffer);
 			exit(99);
 		}
 	}
-	checkRead(&read2, &file1, &file_from, &file2, &buffer);
-	closeFiles(&file1, &file_from, &file2, &buffer);
-	free(buffer);
+	checkRead(&read2, &file1, &file_from, &file2);
 	return (0);
 }
 
@@ -126,7 +91,7 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	two_files(argv[1], argv[2], 1024);
+	two_files(argv[1], argv[2]);
 
 	return (0);
 }
