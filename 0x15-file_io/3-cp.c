@@ -23,18 +23,18 @@ int main(int argc, char *argv[])
 		return (-1);
 
 	file1 = open(argv[1], O_RDONLY);
-	file1Error(file1, buffer, argv[1]);
+	readError(file1, buffer, argv[1]);
 	file2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC);
 	fchmod(file2, 0664);
-	file2Error(file2, buffer, argv[2]);
+	writeError(file2, buffer, argv[2]);
 	do {
 		read2 = read(file1, buffer, BUFFER);
 
 		if (read2 ==  0)
 			break;
-		file1Error(read2, buffer, argv[1]);
+		readError(read2, buffer, argv[1]);
 		print = write(file2, buffer, read2);
-		file2Error(print, buffer, argv[2]);
+		writeError(print, buffer, argv[2]);
 	} while (print >= BUFFER);
 	read2 = close(file2);
 	closeError(read2, buffer);
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 * description: error message
 */
 
-void file1Error(int f1, char *buff, char *av)
+void readError(int f1, char *buff, char *av)
 {
 
 	if (f1 < 0)
@@ -74,7 +74,7 @@ void file1Error(int f1, char *buff, char *av)
 * description: error message
 */
 
-void file2Error(int f2, char *buff, char *av)
+void writeError(int f2, char *buff, char *av)
 {
 	if (f2 < 0)
 	{
