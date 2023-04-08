@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	buffer = malloc(BUFFER * sizeof(char));
+	buffer = malloc(sizeof(char) * BUFFER);
 	if (!buffer)
 		return (0);
 
