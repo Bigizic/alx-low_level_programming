@@ -75,8 +75,6 @@ int two_files(char *file_from, char *file_to, size_t count)
 	size_t read2;
 	char *buffer = malloc(count);
 
-	if (buffer == NULL)
-		return (-1);
 	file1 = fopen(file_from, "r");
 	if (file1 == NULL)
 	{
@@ -95,6 +93,7 @@ int two_files(char *file_from, char *file_to, size_t count)
 	}
 	read2 = fread(buffer, sizeof(char), count, file1);
 	if (read2 > 0)
+	{
 		print = write(file2, buffer, read2);
 		if (print == -1)
 		{
@@ -104,6 +103,7 @@ int two_files(char *file_from, char *file_to, size_t count)
 			free(buffer);
 			exit(99);
 		}
+	}
 	checkRead(&read2, &file1, &file_from, &file2, &buffer);
 	closeFiles(&file1, &file_from, &file2, &buffer);
 	free(buffer);
