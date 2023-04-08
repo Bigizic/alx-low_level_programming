@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	buffer = malloc(BUFFER * sizeof(char));
-	if (buffer == NULL)
-		return (-1);
+	if (!buffer)
+		return (0);
 
 	file1 = open(argv[1], O_RDONLY);
 	readError(file1, buffer, argv[1]);
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
 
 /**
-* file1Error - handle error 98
+* readError - handle error 98
 * @f1: int type
 * @buff: char pointer
 * @av: char pointer
@@ -67,7 +67,7 @@ void readError(int f1, char *buff, char *av)
 
 
 /**
-* file2Error - handles error 99
+* writeError - handles error 99
 * @f2: int type
 * @buff: char pointer
 * @av: char pointer
