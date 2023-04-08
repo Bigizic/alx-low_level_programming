@@ -20,16 +20,16 @@ int checkRead(int *r2, int *f1, char **ffrom, int *f2)
 
 	if (close(*f1) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *f1);
+		dprintf(STDERR_FILENO, "Error: Can't close  %d\n", *f1);
 		exit(100);
 	}
 
 	if (close(*f2) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *f2);
+		dprintf(STDERR_FILENO, "Error: Can't close  %d\n", *f2);
 		exit(100);
 	}
-	exit(EXIT_SUCCESS);
+	return (0);
 
 }
 
