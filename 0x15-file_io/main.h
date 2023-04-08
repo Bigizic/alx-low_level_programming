@@ -24,4 +24,5 @@ int main(int argc, char *argv[]);
 void readError(int f1, char *buff, char *av);
 void writeError(int f2, char *buff, char *av);
 void closeError(int f2, char *buff);
+
 #endif
