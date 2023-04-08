@@ -5,7 +5,7 @@
 * checkRead - function for read 2
 * @r2: int type
 * @f1: int type
-* @fr: char pointer to a pointer
+* @ffrom: char pointer to a pointer
 * @f2: int type
 * Return: 0 if success
 */
