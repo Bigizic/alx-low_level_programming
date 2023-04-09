@@ -9,7 +9,7 @@
 *
 * @m: unsigned long int
 *
-* Description: this function use the (>>) operator to perform
+* Description: this function use the (&) operator to perform
 * the flip
 *
 * Return: unsigned int type
