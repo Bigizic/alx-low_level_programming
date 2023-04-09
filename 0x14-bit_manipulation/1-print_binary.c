@@ -13,21 +13,26 @@
 void print_binary(unsigned long int n)
 {
 	int i = 0;
-	unsigned int rep;
+	unsigned long int rep = 0;
+	int le = sizeof(unsigned long int) * 8;
 
-	rep = 1U << (sizeof(unsigned int) * 2);
+	rep = 1UL << (le - 1);
 
-	while (rep != 0)
+	while (rep > 0)
 	{
 		if (n & rep)
 		{
-			putchar('1');
+			write(1, "1", 1);
+			i++;
 		}
-		else
+		else if (i > 0)
 		{
-			putchar('0');
+			write(1, "0", 1);
 		}
 		rep >>= 1;
-		i++;
+	}
+	if (i == 0)
+	{
+		write(1, "0", 1);
 	}
 }
