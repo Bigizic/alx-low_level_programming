@@ -18,16 +18,26 @@
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int i;
-	int x, j;
+	int x, j = 0;
+
+	if (sizeof(n) != 8 || sizeof(m) != 8)
+	{
+		return (-1);
+	}
+
+	if (CHAR_BIT * sizeof(n) != CHAR_BIT * sizeof(m))
+	{
+		return (-1);
+	}
 
 	i = n ^ m;
 	x = 0;
 
-	while (i > 0)
+	while (i != 0)
 	{
-		j++;
 		x += i & 1;
 		i >>= 1;
+		j++;
 	}
 	return (x);
 }
