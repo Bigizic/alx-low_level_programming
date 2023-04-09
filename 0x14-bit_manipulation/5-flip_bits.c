@@ -22,6 +22,12 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	i = n ^ m;
 	x = 0;
+
+	if (i >= 64)
+	{
+		return (-1)
+	}
+
 	while (i != 0)
 	{
 		x += i & 1;
