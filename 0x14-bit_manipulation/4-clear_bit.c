@@ -6,14 +6,14 @@
 *
 * @n: pointer to an unsigned long int
 *
-* @int: unsigned int
+* @index: unsigned int
 *
 * Description: this function set the value of a bit to 0
 * at a given index with the & and ~ operator it uses the
 * << (bit shifting) operator to shift the bits of the left
 * hand operator to the left by a number of positions.
 *
-* Return 1 if success or -1 if not
+* Return: 1 if success or -1 if not
 */
 
 int clear_bit(unsigned long int *n, unsigned int index)
