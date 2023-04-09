@@ -13,25 +13,21 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	int i, j;
+	int i = 0;
 	unsigned int count = 0;
-	int l = strlen(b);
 
-	while (b != NULL)
+	if (b == NULL)
+		return (0);
+
+	while (b[i] != '\0')
 	{
-		for (i = l - 1, j = 0; i >= 0; i--, j++)
+		if (b[i] != '1' && b[i] != '0')
 		{
-			if (b[i] == '1' || b[i] == '0')
-			{
-				count += 1 << (l - i - 1);
-			}
-			if (b[i] != '1' || b[i] != '0')
-			{
-				b = NULL;
-				return (0);
-			}
+			return (0);
 		}
-
+		count <<= 1;
+		count += b[i] - '0';
+		i++;
 	}
 	return (count);
 }
