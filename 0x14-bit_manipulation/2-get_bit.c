@@ -16,20 +16,16 @@
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	int i = 0;
+	int i;
+	unsigned long int rep;
 
-	while (n > 0)
+	if (index >= 64)
 	{
-		if (index > 0 && n > 0)
-		{
-			return (1);
-		}
-		if (index == 0 && n > 0)
-		{
-			return (0);
-		}
-		
-		i++;
+		return (-1);
 	}
-	return (-1);
+
+	rep = 1UL << index;
+	i = (n & rep) != 0;
+	return (i);
+
 }
