@@ -9,7 +9,8 @@
 * @index: unsigned int
 *
 * Description: this function returns the value of a bit at
-* a given index or it returns -1 if an error occurred
+* a given index or it returns -1 if index >= a sizeof an 
+* unsigned long int * 8, where the sizeof unsigned long int is 8
 *
 * Return: value of the bit at given indec or -1 if not
 */
