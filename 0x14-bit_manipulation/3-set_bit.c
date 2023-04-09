@@ -8,23 +8,21 @@
 *
 * @index: unisgned int
 *
-* Description: this function gets the value of a bit at a given index and set it's value to 1
+* Description: this function gets the value of a bit 
+* at a given index and set it's value to 1
 *
 * Return: 1 or -1 if not
 */
 
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int x;
-	int i;
 
 	if (index >= 64)
 	{
 		return (-1);
 	}
 
-	x = 1UL << index;
 
-	i = *n |= x;
-	return (i);
+	*n |= (1UL << index);
+	return (*n);
 }
