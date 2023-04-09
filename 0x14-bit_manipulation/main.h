@@ -2,10 +2,11 @@
 #define MAIN_H
 
 
-#define <stdio.h>
-#define <stdlib.h>
-#define <string.h>
-#define <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
 /* header */
 
 /* prototype */
