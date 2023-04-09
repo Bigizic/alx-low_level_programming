@@ -17,7 +17,7 @@
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int i, op;
+	unsigned long int i, op;
 
 	if (sizeof(n) != 8 || sizeof(m) != 8)
 	{
@@ -33,7 +33,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	for (i = 0; op != 0; i += 1)
 	{
-		op &= (op -1);
+		op &= (op - 1);
 	}
 	return (i);
 }
