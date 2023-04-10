@@ -8,9 +8,9 @@ void data(unsigned char *num);
 void version(unsigned char *num);
 void OS_ABI(unsigned char *num);
 void ABI(unsigned char *num);
-void type(unsigned char *num);
-void entry(unsigned char *num);
-void close_elf(unsigned char *num);
+void type(unsigned int t, unsigned char *num);
+void entry(unsigned long int e, unsigned char *num);
+void close_elf(int num);
 
 /**
 * elf_checker - checks if ELF file exists
@@ -40,7 +40,7 @@ void elf_checker(unsigned char *num)
 /**
 * magic - print magic file
 *
-* @num: unsigned char pointer to an array of ELF numbers
+* @num: unsigned char pointer to an array of ELF magic numbers
 *
 * Description: this function prints magic numbers it can find and sepreate them by spaces
 *
@@ -65,7 +65,7 @@ void magic(unsigned char *num)
 /**
 * class - print class
 *
-* @num: unsigned char pointer to an array of ELF numbers
+* @num: unsigned char pointer to an array of ELF class
 *
 * Description: this function prints a class
 *
@@ -97,7 +97,7 @@ void class(unsigned char *num)
 /**
 * data - prints data
 *
-* @num: unsigned char pointer to an array of ELF numbers
+* @num: unsigned char pointer to an array of ELF class
 *
 * Description: this function prints data of an ELF header
 *
@@ -128,7 +128,7 @@ void data(unsigned char *num)
 /**
 * version - prints version of ELF header
 *
-* @num: unsigned char pointer to an array of ELF numbers
+* @num: unsigned char pointer to an array of ELF version
 *
 * Description: this function prints the current version of an ELF header
 *
@@ -155,7 +155,7 @@ void version(unsigned char *num)
 /**
 * OS_ABI - prints OS/ABI of ELF header
 *
-* @num: unsigned char pointer to an array of ELF numbers
+* @num: unsigned char pointer to an array of ELF version
 *
 * Description: this function porints the operating system
 * or application binary interface of an ELF header
@@ -203,4 +203,131 @@ void OS_ABI(unsigned char *num)
 			printf("<unknown: %x>\n", num[EI_OSABI]);
 	}
 }
+
+
+/**
+* ABI - prints abi version of ELF header
+*
+* @num: unsigned char pointer to an array of ELF ABI version
+*
+* Description: this function prints the abi version of an ELF version
+*
+* Return: void
+*/
+
+void ABI(unsigned char *num)
+{
+	printf("  ABI Version:                       %d\n",
+			num[EI_ABIVERSION]);
+}
+
+
+
+/**
+* type - get type of ELF header
+*
+* @t: unsigned int of ELF type
+*
+* @num: unsigned char pointer to ELF class
+*
+* Description: this function prints the type of an ELF header
+*/
+
+void type(unsigned int t, unsigned char *num)
+{
+	if (num[EI_DATA] == ELFDATA2MSB)
+		t >>= 8;
+
+	printf("  Type:                              ");
+
+	switch (t)
+	{
+		case ET_NONE:
+			printf("NONE (None)\n");
+			break;
+		case ET_REL:
+			printf("REL (Relocatable file)\n");
+			break;
+		case ET_EXEC:
+			printf("EXEC (Executable file)\n");
+			break;
+		case ET_DYN:
+			printf("DYN (Shared object file)\n");
+			break;
+		case ET_CORE:
+			printf("CORE (Core file)\n");
+			break;
+		default:
+			printf("<unknown: %x>\n", t);
+	}
+}
+
+
+
+/**
+* entry - prints entry of ELF header
+*
+* @e: unsigned long int of address of ELF entry point
+*
+* @num: unsigned char to an array of ELF class
+*
+* Description: this function prints the entry point of an ELF header
+*
+* Return: void
+*/
+
+void entry(unsigned long int e, unsigned char *num)
+{
+	printf("  Entry point address:               ");
+
+	if (num[EI_DATA] == ELFDATA2MSB)
+	{
+		e = ((e << 8) & 0xFF00FF00) | ((e >> 8) & 0xFF00FF);
+		e = (e << 16) | (e >> 16);
+	}
+
+	if (num[EI_CLASS] == ELFCLASS32)
+		printf("%#x\n", (unsigned int)e);
+
+	else
+		printf("%#lx\n", e);
+}
+
+
+
+/**
+* close_elf - closes the ELF header
+*
+* @num: file descriptor
+*
+* Description: this function closes the ELF header/file if not exit with error 98
+*
+* Return: void
+*/
+
+void close_elf(int num)
+{
+	if (close(num) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", num);
+		exit(98);
+	}
+}
+
+
+/**
+* main - Print the information in the ELF header form the start
+*
+* @argc: int type
+*
+* @argv: char array
+*
+* Description: this fnction display the information in the
+* ELF header if file is not ELF file or function fail exit 98
+*
+* Return: 0 if success
+*/
+
+int main(int __attribute__((__unused__)) argc, char *argv[])
+{
 
