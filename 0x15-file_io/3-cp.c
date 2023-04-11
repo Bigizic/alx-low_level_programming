@@ -2,9 +2,17 @@
 /* header */
 
 /**
-* main - contains two files and run the program
+* main - copies the content of a fle to another
+*
 * @argc: int type, also points to the length of arguments passed
+*
 * @argv: char pointer to file names
+*
+* Description: this file takes the second argument
+* passed to the shell from the terminal, it reads
+* the second argument and write it to the third
+* argument passed on the terminal.
+*
 * Return: a program that read firstFile and write to secondFile
 */
 
