@@ -32,7 +32,8 @@ int main(int argc, char *argv[])
 
 	file1 = open(argv[1], O_RDONLY);
 	readError(file1, buffer, argv[1]);
-	file2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC);
+	checkAccess();
+	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC);
 	fchmod(file2, 0664);
 	writeError(file2, buffer, argv[2]);
 	do {
@@ -109,3 +110,4 @@ void closeError(int f2, char *buff)
 		exit(100);
 	}
 }
+
