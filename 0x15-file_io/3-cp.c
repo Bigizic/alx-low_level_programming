@@ -32,9 +32,9 @@ int main(int argc, char *argv[])
 
 	file1 = open(argv[1], O_RDONLY);
 	readError(file1, buffer, argv[1]);
-	if (access(argv[2], R_OK))
+	if (access(argv[2], R_OK) == -1)
 	{
-		return (0);
+		chmod(argv[2], 0644);
 	}
 	file2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC);
 	fchmod(file2, 0664);
