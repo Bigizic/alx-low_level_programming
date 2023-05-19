@@ -14,14 +14,19 @@
 
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-	dlistint_t *head_copy = head;
+	dlistint_t *head_copy = head, *new_node;
 	unsigned int count = 0;
+
+	new_node = malloc(sizeof(dlistint_t));
+	if (new_node == NULL)
+		return (NULL);
 
 	while (head_copy != NULL)
 	{
 		if (count == index)
 		{
-			return (head_copy);
+			new_node->n = head_copy->n;
+			return (new_node);
 		}
 		head_copy = head_copy->next;
 		count++;
