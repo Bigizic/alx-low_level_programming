@@ -11,12 +11,13 @@
 
 void free_dlistint(dlistint_t *head)
 {
-	dlistint_t *head_copy;
+	dlistint_t *head_copy, *next_node;
 
-	while (head != NULL)
+	head_copy = head;
+	while (head_copy != NULL)
 	{
-		head_copy = head;
-		head = head->next;
+		next_node = head_copy->next;
 		free(head_copy);
+		head_copy = next_node;
 	}
 }
