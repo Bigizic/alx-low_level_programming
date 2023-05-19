@@ -2,7 +2,8 @@
 /* header */
 
 /**
-* add_dnodeint - a function that adds a new node at the beginning of a dlistint_t list
+* add_dnodeint - a function that adds a new node at the beginning
+* of a dlistint_t list
 *
 * @head: pointer to a pointer to teh beginning of the list
 *
