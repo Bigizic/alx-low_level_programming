@@ -12,16 +12,24 @@
 
 size_t print_dlistint(const dlistint_t *h)
 {
-	const dlistint_t *current;
 	unsigned int i = 0;
+	int x = 0;
+	const dlistint_t *current = h;
 
-	current = h;
-
-	while (current != NULL)
+	for (i = 0; current != NULL; i++)
 	{
-		printf("%d\n", current->n);
+		if (current->prev != NULL && x == 0)
+		{
+			current = current->prev;
+			continue;
+		}
+		else if (current->prev == NULL)
+		{
+			x = 1;
+			i = 0;
+		}
+		printf("%i\n", current->n);
 		current = current->next;
-		i++;
 	}
 	return (i);
 }
