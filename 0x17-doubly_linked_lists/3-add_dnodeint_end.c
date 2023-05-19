@@ -2,7 +2,8 @@
 /* header */
 
 /**
-* add_dnodeint_end - a function that adds a new node at the end of a dlistint_t list.
+* add_dnodeint_end - a function that adds a new node at the
+* end of a dlistint_t list.
 *
 * @head: double pointer to the head of the list
 *
