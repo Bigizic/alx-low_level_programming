@@ -71,8 +71,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 *
 * Return: something
 */
-dlistint_t *extra_check(dlistint_t *head_copy, unsigned int count,
-		unsigned int idx, dlistint_t *new_node)
+dlistint_t *extra_check(dlistint_t *head_copy, unsigned int count, unsigned int idx, dlistint_t *new_node)
 {
 	if (head_copy == NULL && count == idx - 1)
 	{
