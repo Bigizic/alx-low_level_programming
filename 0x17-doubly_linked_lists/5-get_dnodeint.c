@@ -21,6 +21,11 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	if (new_node == NULL)
 		return (NULL);
 
+	if (index == 0)
+	{
+		new_node->n = head_copy->n;
+		return (new_node);
+	}
 	while (head_copy != NULL)
 	{
 		head_copy = head_copy->next;
