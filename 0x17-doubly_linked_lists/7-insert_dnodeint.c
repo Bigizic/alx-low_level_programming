@@ -18,7 +18,7 @@ dlistint_t *extra_check(dlistint_t *head_copy, unsigned int count, unsigned int 
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *head_copy, *new_node;
+	dlistint_t *head_copy = *h, *new_node;
 	unsigned int count = 0;
 
 	new_node = malloc(sizeof(dlistint_t));
@@ -50,8 +50,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		*h = new_node;
 		return (new_node);
 	}
-	head_copy = *h;
-
 	while(head_copy != NULL && count < idx)
 	{
 		head_copy = head_copy->next;
