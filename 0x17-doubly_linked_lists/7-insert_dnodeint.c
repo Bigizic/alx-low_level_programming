@@ -1,8 +1,6 @@
 #include "lists.h"
 /* header */
 
-dlistint_t *extra_check(dlistint_t *head_copy, unsigned int count, unsigned int idx, dlistint_t *new_node);
-
 /**
 * insert_dnodeint_at_index - a function that inserts a new node
 * at a given position
@@ -16,7 +14,8 @@ dlistint_t *extra_check(dlistint_t *head_copy, unsigned int count, unsigned int 
 * Return: the address of the new node, or NULL if it failed
 */
 
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h,
+		unsigned int idx, int n)
 {
 	dlistint_t *head_copy = *h, *new_node;
 	unsigned int count = 0;
@@ -59,7 +58,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 }
 
 /**
-* extra_check - do something
+* extra_check - a function that handles extra checks
 *
 * @head_copy: something
 *
@@ -71,7 +70,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 *
 * Return: something
 */
-dlistint_t *extra_check(dlistint_t *head_copy, unsigned int count, unsigned int idx, dlistint_t *new_node)
+dlistint_t *extra_check(dlistint_t *head_copy, unsigned int count,
+		unsigned int idx, dlistint_t *new_node)
 {
 	if (head_copy == NULL && count == idx - 1)
 	{
