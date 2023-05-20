@@ -49,7 +49,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h,
 		*h = new_node;
 		return (new_node);
 	}
-	while(head_copy != NULL && count < idx)
+	while (head_copy != NULL && count < idx)
 	{
 		head_copy = head_copy->next;
 		count++;
@@ -60,15 +60,15 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h,
 /**
 * extra_check - a function that handles extra checks
 *
-* @head_copy: something
+* @head_copy: pointer to a dlistint_t type that copies the head
 *
-* @count: something
+* @count: unsigned int type to keep count of elements in the list
 *
-* @idx: something
+* @idx: usigned int type that contain index to change
 *
-* @new_node: something
+* @new_node: dlistint_t type that stores the new_node to insert
 *
-* Return: something
+* Return: new_node or NULL if it fails
 */
 dlistint_t *extra_check(dlistint_t *head_copy, unsigned int count,
 		unsigned int idx, dlistint_t *new_node)
