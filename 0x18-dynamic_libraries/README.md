@@ -150,3 +150,10 @@ Create a script that creates a dynamic library called liball.so from all the .c 
 
 6: entered "nm -D libdynamic.so" to list the functions in the libary file in alphabetical order.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+## How i solved 100-operations.so:
+
+1: created a C file containing 5 functions: add, sub, mul, div, mod. returned their operation
+
+2: entered this code "gcc -shared -fPIC -o 100-operations.so pythonfunc.c"
