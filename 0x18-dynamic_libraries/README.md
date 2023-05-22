@@ -139,8 +139,14 @@ Create a script that creates a dynamic library called liball.so from all the .c 
 ## codes i used for libdynamic.so, main.h: 
 
 1: created a main.h header file
+
 2: created a dynamic.c file containing all required c functions
+
 3: entered the command "gcc -c -fPIC dynamic.c -o dynamic.o" to compile the source code into an object file.
+
 4: enterd the command "gcc -shared dynamic.o -o libdynamic.so" to create a shared libary, i used the object file to create the shared libary "libdynamic.so"
+
 5: entered "ls -la lib* " to list only libary files
+
 6: entered "nm -D libdynamic.so" to list the functions in the libary file in alphabetical order.
+
