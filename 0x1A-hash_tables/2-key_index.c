@@ -9,11 +9,6 @@
  *
  * @size: size of the array of the hash table
  *
- * Description: The number 31 is commonly used in hashing algorithms
- * because it's a prime number. Multiplying the hash value by 31 is a
- * simple and efficient way to combine the accumulated hash value with
- * the next character of the key
- *
  * Return: index of the key
  */
 
