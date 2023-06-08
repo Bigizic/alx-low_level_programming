@@ -64,9 +64,9 @@ If something went wrong, your function should return NULL
 
 Write a hash function implementing the djb2 algorithm.
 
-Prototype: unsigned long int hash_djb2(const unsigned char *str);
+Prototype: unsigned long int hash_djb2(const unsigned char * str);
 
-You are allowed to copy and paste the function from this page
+You are allowed to copy and paste the function from <a href="https://gist.github.com/papamuziko/7bb52dfbb859fdffc4bd0f95b76f71e8">this page</a>
 
 
 	julien@ubuntu:~/0x1A. Hash tables$ cat 1-djb2.c 
