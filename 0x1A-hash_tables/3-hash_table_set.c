@@ -50,7 +50,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 
 	/* no collision, set new_element as first node */
-	ht->array[index] = new_element;
 
 	return (1);
 }
