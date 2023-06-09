@@ -45,8 +45,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[index] != NULL)
 	{
 		/* Add the new_element to the beginning of the list */
-		ht->array[index] = new_element;
 		new_element->next = ht->array[index];
+		ht->array[index]->next = new_element;
 	}
 
 	/* no collision, set new_element as first node */
