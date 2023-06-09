@@ -33,7 +33,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_element->next = NULL;
 
 	if (new_element->key == NULL || (new_element->value == NULL
-				&& *value != '\0'))
+				&& *value == '\0'))
 	{
 		free(new_element->key);
 		free(new_element->value);
