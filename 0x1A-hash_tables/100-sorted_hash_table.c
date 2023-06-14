@@ -95,7 +95,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		current = ht->shead;
 		while (current->snext != NULL && strcmp(key,
 					current->snext->key) > 0)
-			current = current->next;
+			current = current->snext;
 
 		node_cp->sprev = current;
 		node_cp->snext = current->snext;
