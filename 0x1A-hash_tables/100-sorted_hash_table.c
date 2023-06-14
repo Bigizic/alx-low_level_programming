@@ -131,7 +131,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	i = hash_djb2((const unsigned char *)key) % ht->size;
 	temp_node = ht->array[i];
 
-	while(temp_node != NULL)
+	while (temp_node != NULL)
 	{
 		if (strcmp(temp_node->key, key) == 0)
 			return (temp_node->value);
