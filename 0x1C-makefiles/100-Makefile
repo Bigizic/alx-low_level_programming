@@ -13,10 +13,8 @@ clean:
 oclean:
 	$(RM) $(OBJ)
 
-fclean:
-	$(RM) *~ $(NAME)
-	$(RM) $(OBJ)
+fclean:clean oclean
 
-re:oclean all
+re: oclean all
 
 .PHONY all clean oclean fclean re
