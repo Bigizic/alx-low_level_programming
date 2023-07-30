@@ -3,6 +3,11 @@
 """
 
 def island_perimeter(grid):
+    """Created a new list from the grid that forms each cell from each
+        column of the original gird, then i count how many times 1 in
+        the new list rows and same thing with the grid, then i add both
+        and multiply by 2
+    """
     n_row = len(grid)
     n_col = len(grid[0])
     col_count = 0
