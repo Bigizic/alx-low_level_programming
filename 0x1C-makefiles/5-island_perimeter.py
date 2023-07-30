@@ -2,6 +2,7 @@
 """A Technical interview question
 """
 
+
 def island_perimeter(grid):
     """Took me 2 days
     """
