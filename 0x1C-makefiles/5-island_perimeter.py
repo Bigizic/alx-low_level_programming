@@ -3,21 +3,29 @@
 """
 
 def island_perimeter(grid):
-    """The perimeter of a square is 4L and for a rectangle is 2(L + W)
-    Get perimeter for square by calculating the length of the grid
-    and for the rectangle i iterate through the first cell or the cell
-    with the maximum amount of elements and get the len of that cell
-    then add it to the length of the grid, so width + length
-    """
-    square_len = len(grid)
-    rec_len = len(grid)
-    rec_width = None
-    l_cell = grid[0]
+    n_row = len(grid)
+    n_col = len(grid[0])
+    col_count = 0
+    row_count = 0
+
+    # maximum none zero
+    # check for the row that has more than none zero character
+    # creates a new list that forms from each column in grid
+    max_nz = max(sum(grid[r][c] for r in range(n_row)) for c in range(n_col))
+    new_list = [[0 for _ in range(max_nz)] for _ in range(n_col)]
+    for col in range(n_col):
+        non_zero_count = sum(grid[row][col] for row in range(n_row))
+        for i in range(non_zero_count):
+            new_list[col][i] = 1
 
     for rows in grid:
-        for cells in rows:
-            if isinstance(cells, list) and (len(cells) > len(l_cell)):
-                l_cell = cells
-    rec_width = len(l_cell)
-    perimeter = (2 *(rec_width + rec_len)) - (2 * square_len)
-    return perimeter
+        if isinstance(rows, list):
+            if 1 in rows:
+                row_count += 1
+
+    for rows in new_list:
+        if isinstance(rows, list):
+            if 1 in rows:
+                col_count += 1
+    parameter = 2 * (row_count + col_count)
+    return parameter
