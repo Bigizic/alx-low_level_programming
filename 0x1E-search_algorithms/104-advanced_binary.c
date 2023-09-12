@@ -54,12 +54,14 @@ int helper(int *array, int l, int r, int value)
 	{
 		mid = (l + r) / 2;
 
+		if (array[mid] == value && l == mid)
+			return (mid);
 		if (array[mid] < value)
 			return (helper(array, mid + 1, r, value));
 		else if (array[mid] > value)
-			return (helper(array, l, mid - 1, value));
-		else if (array[mid] == value && l == mid)
-			return (mid);
+			return (helper(array, l, mid, value));
+		/*else if (array[mid] == value && l == mid)*/
+			/*return (mid);*/
 		else
 			return (helper(array, l, mid, value));
 			/*printf("%d, %d, %d\n", l, r, mid);*/
